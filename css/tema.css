@@ -1,0 +1,440 @@
+/* =====================================================================
+   TEMA DA DEFESA — Delinéia
+   Este arquivo controla a APARÊNCIA. O conteúdo fica no index.html.
+
+   Como ler este arquivo:
+   1. Fontes (carregadas da pasta /fontes, sem internet)
+   2. Variáveis de cor e tamanho (mude aqui e tudo se atualiza)
+   3. Estrutura geral de um slide
+   4. Componentes reutilizáveis (afirmação, referências, marcadores, rodapé)
+   5. Estilos específicos de cada slide
+   6. Vídeo e janela expandida
+   ===================================================================== */
+
+
+/* ---------- 1. FONTES ---------------------------------------------- */
+/* Source Serif 4 para títulos e Source Sans 3 para o texto de apoio.
+   Os arquivos .woff2 estão em /fontes; nada é baixado da internet. */
+
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("../fontes/source-serif-4-latin-400-normal.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: block;
+}
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("../fontes/source-serif-4-latin-400-italic.woff2") format("woff2");
+  font-weight: 400; font-style: italic; font-display: block;
+}
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("../fontes/source-serif-4-latin-600-normal.woff2") format("woff2");
+  font-weight: 600; font-style: normal; font-display: block;
+}
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("../fontes/source-sans-3-latin-400-normal.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: block;
+}
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("../fontes/source-sans-3-latin-600-normal.woff2") format("woff2");
+  font-weight: 600; font-style: normal; font-display: block;
+}
+
+
+/* ---------- 2. VARIÁVEIS ------------------------------------------- */
+/* Paleta contida: poucas cores, cada uma com uma função fixa. */
+
+:root {
+  --noite:   #13203A;  /* fundo dos slides escuros (abertura) */
+  --tinta:   #1C2B45;  /* texto principal e formas nos slides claros */
+  --papel:   #F7F7F4;  /* fundo dos slides claros */
+  --grafite: #56606E;  /* texto secundário: legendas, referências */
+  --nevoa:   #D5DAE1;  /* linhas finas e elementos inativos */
+  --ouro:    #B3893A;  /* destaque: só para o que merece atenção */
+  --ouro-claro: #C9A45C; /* destaque sobre fundo escuro */
+
+  --serifa: "Source Serif 4", "Georgia", "Times New Roman", serif;
+  --sem-serifa: "Source Sans 3", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  --margem: 120px;     /* margem lateral de todos os slides */
+}
+
+
+/* ---------- 3. ESTRUTURA GERAL ------------------------------------- */
+
+.reveal-viewport { background: var(--papel); }
+
+.reveal {
+  font-family: var(--sem-serifa);
+  color: var(--tinta);
+  font-size: 34px;
+}
+
+/* O reveal.js posiciona as <section>. O nosso ".quadro" é a folha
+   de 1920 x 1080 dentro da qual organizamos cada slide. */
+.reveal .slides > section {
+  padding: 0;
+  text-align: left;
+}
+
+.quadro {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  box-sizing: border-box;
+  padding: 104px var(--margem) 0;
+  display: grid;
+  grid-template-rows: auto 1fr 170px;  /* afirmação | evidência | zona do rodapé */
+}
+
+.escuro .quadro { color: var(--papel); }
+
+
+/* ---------- 4. COMPONENTES ----------------------------------------- */
+
+/* 4a. Afirmação (título do modelo assertion-evidence) */
+.afirmacao {
+  font-family: var(--serifa);
+  font-weight: 600;
+  font-size: 58px;
+  line-height: 1.16;
+  letter-spacing: -0.005em;
+  max-width: 1640px;
+  margin: 0;
+  color: var(--tinta);
+  text-wrap: balance;
+}
+
+/* 4b. Área de evidência */
+.evidencia {
+  position: relative;
+  padding-top: 56px;
+}
+
+/* 4c. Referências que aparecem e somem durante a fala */
+.referencias {
+  position: absolute;
+  right: var(--margem);
+  bottom: 118px;
+  height: 44px;
+  width: 1100px;
+}
+.referencias .ref {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  white-space: nowrap;
+  font-family: var(--serifa);
+  font-style: italic;
+  font-size: 28px;
+  color: var(--grafite);
+  padding-left: 22px;
+  border-left: 3px solid var(--ouro);
+}
+
+/* 4d. Marcadores recorrentes (coocorrência e LLM), canto superior direito */
+.marcadores {
+  position: absolute;
+  top: 58px;
+  right: var(--margem);
+  display: flex;
+  gap: 28px;
+}
+.marcador {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 24px;
+  color: var(--grafite);
+}
+.marcador svg { width: 46px; height: 46px; }
+.marcador.fragment.visible { animation: chegada 520ms ease-out; }
+@keyframes chegada {
+  from { transform: translateY(-6px); }
+  to   { transform: translateY(0); }
+}
+
+/* Ícones: desenhados uma vez aqui e reutilizados pela classe */
+.icone-traco { stroke: var(--tinta); stroke-width: 2.4; fill: none; }
+.icone-no    { fill: var(--papel); stroke: var(--tinta); stroke-width: 2.4; }
+.icone-no.principal { fill: var(--ouro); stroke: var(--ouro); }
+
+/* 4e. Rodapé com indicador de seção (inserido pelo apresentacao.js) */
+.rodape {
+  position: absolute;
+  left: var(--margem);
+  right: var(--margem);
+  bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 22px;
+  color: var(--grafite);
+}
+.rodape-secao { display: flex; align-items: center; gap: 22px; }
+.rodape-trilha { display: flex; gap: 8px; }
+.rodape-trilha span {
+  width: 34px; height: 4px;
+  background: var(--nevoa);
+}
+.rodape-trilha span.passada { background: #9AA3B0; }
+.rodape-trilha span.atual   { background: var(--ouro); width: 58px; }
+.rodape-numero { font-variant-numeric: tabular-nums; }
+
+.escuro .rodape { color: rgba(247, 247, 244, 0.6); }
+.escuro .rodape-trilha span { background: rgba(247, 247, 244, 0.18); }
+.escuro .rodape-trilha span.passada { background: rgba(247, 247, 244, 0.45); }
+.escuro .rodape-trilha span.atual { background: var(--ouro-claro); }
+
+/* 4f. Texto de apoio em coluna */
+.apoio {
+  font-size: 36px;
+  line-height: 1.38;
+  max-width: 760px;
+  margin: 0 0 44px;
+}
+.apoio.com-icone {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  column-gap: 26px;
+  align-items: start;
+}
+.apoio.com-icone svg { width: 58px; height: 58px; margin-top: 2px; }
+
+.legenda {
+  font-size: 26px;
+  color: var(--grafite);
+  margin-top: 26px;
+}
+
+
+/* ---------- 5. SLIDES ESPECÍFICOS ---------------------------------- */
+
+/* 5a. Abertura */
+.abertura .quadro { display: block; padding-top: 96px; }
+.abertura .instituicao {
+  font-size: 26px;
+  line-height: 1.45;
+  color: rgba(247, 247, 244, 0.72);
+}
+.abertura .nome-sistema {
+  font-family: var(--serifa);
+  font-weight: 600;
+  font-size: 168px;
+  line-height: 1;
+  letter-spacing: -0.012em;
+  margin: 170px 0 34px;
+  color: var(--papel);
+}
+.abertura .subtitulo {
+  font-family: var(--serifa);
+  font-size: 40px;
+  line-height: 1.32;
+  max-width: 860px;
+  color: rgba(247, 247, 244, 0.9);
+  margin: 0;
+}
+.abertura .autoria {
+  position: absolute;
+  left: var(--margem);
+  bottom: 96px;
+  font-size: 28px;
+  line-height: 1.5;
+  color: rgba(247, 247, 244, 0.78);
+}
+.abertura .autoria strong { font-weight: 600; color: var(--papel); }
+
+.mapa-abertura {
+  position: absolute;
+  left: 1000px;
+  top: 90px;
+  width: 860px;
+  height: 900px;
+}
+.mapa-abertura .aresta { stroke: rgba(247, 247, 244, 0.26); stroke-width: 2; }
+.mapa-abertura .no { fill: var(--noite); stroke: rgba(247, 247, 244, 0.7); stroke-width: 2.5; }
+.mapa-abertura .no.central { fill: var(--ouro-claro); stroke: var(--ouro-claro); }
+.mapa-abertura text {
+  font-family: var(--sem-serifa);
+  font-size: 24px;
+  fill: rgba(247, 247, 244, 0.62);
+}
+.mapa-abertura text.central { fill: var(--ouro-claro); font-size: 28px; font-weight: 600; }
+
+/* O único momento "orquestrado" da apresentação: as arestas se desenham
+   quando a abertura entra em cena. */
+.abertura.present .mapa-abertura .aresta {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: desenhar 1600ms ease-out forwards;
+}
+.abertura.present .mapa-abertura .aresta:nth-of-type(2n) { animation-delay: 250ms; }
+.abertura.present .mapa-abertura .aresta:nth-of-type(3n) { animation-delay: 500ms; }
+@keyframes desenhar { to { stroke-dashoffset: 0; } }
+
+/* 5b. Tema: três buscas */
+.tres-buscas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: end;
+}
+.busca { text-align: center; }
+.busca svg { width: 460px; height: 460px; display: block; margin: 0 auto; }
+.busca .recuperado { fill: rgba(28, 43, 69, 0.09); stroke: var(--tinta); stroke-width: 3; }
+.busca .relevante  { fill: none; stroke: var(--ouro); stroke-width: 4; stroke-dasharray: 14 10; }
+.busca h3 {
+  font-family: var(--serifa);
+  font-weight: 600;
+  font-size: 36px;
+  margin: 10px 0 4px;
+}
+.busca p { font-size: 28px; color: var(--grafite); margin: 0; }
+.busca.alvo .recuperado { fill: rgba(179, 137, 58, 0.14); }
+
+.chave-leitura {
+  position: absolute;
+  top: 34px;
+  right: 0;
+  display: flex;
+  gap: 40px;
+  font-size: 24px;
+  color: var(--grafite);
+}
+.chave-leitura span { display: inline-flex; align-items: center; gap: 12px; }
+.chave-leitura svg { width: 34px; height: 34px; }
+
+/* 5c. Contexto: cadeia de causa em três elos */
+.duas-colunas {
+  display: grid;
+  grid-template-columns: 820px 1fr;
+  column-gap: 120px;
+  align-items: end;
+  padding-bottom: 10px;
+}
+.cadeia {
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr 80px 1.15fr;
+  column-gap: 28px;
+  align-items: start;
+  padding-top: 80px;
+}
+.elo .pictograma { width: 100%; height: auto; display: block; }
+.elo h3 {
+  font-family: var(--serifa);
+  font-weight: 600;
+  font-size: 38px;
+  margin: 28px 0 6px;
+}
+.elo p { font-size: 29px; color: var(--grafite); margin: 0; line-height: 1.35; }
+.cadeia .seta { width: 80px; height: 40px; margin-top: 110px; }
+.cadeia .seta line, .cadeia .seta polyline {
+  fill: none; stroke: var(--grafite); stroke-width: 3;
+}
+.elo.respostas { padding-top: 24px; }
+.elo.respostas .apoio {
+  font-size: 32px;
+  color: var(--tinta);
+  margin-bottom: 48px;
+}
+
+/* 5d. Justificativa: documentos recuperados por buscas diferentes */
+.sobreposicao svg { width: 820px; height: 428px; display: block; }
+.sobreposicao .doc { fill: var(--tinta); }
+.sobreposicao .doc.vazio { fill: none; stroke: var(--nevoa); stroke-width: 2.5; }
+.sobreposicao .doc.ouro { fill: var(--ouro); }
+.sobreposicao .faixa { fill: rgba(179, 137, 58, 0.14); }
+.sobreposicao text { font-family: var(--sem-serifa); font-size: 28px; fill: var(--grafite); }
+.sobreposicao .legenda { max-width: 780px; line-height: 1.4; }
+
+/* 5e. Slide de leitura (questão de pesquisa) */
+.leitura .quadro { display: block; padding-top: 0; }
+.leitura .rotulo {
+  position: absolute;
+  top: 250px;
+  left: var(--margem);
+  font-size: 30px;
+  color: var(--grafite);
+}
+.leitura blockquote {
+  position: absolute;
+  top: 318px;
+  left: var(--margem);
+  margin: 0;
+  padding-left: 48px;
+  border-left: 6px solid var(--ouro);
+  max-width: 1500px;
+  font-family: var(--serifa);
+  font-size: 70px;
+  line-height: 1.24;
+  color: var(--tinta);
+}
+
+
+/* ---------- 6. VÍDEO ---------------------------------------------- */
+
+.janela-video {
+  position: absolute;
+  left: var(--margem);
+  top: 300px;
+  width: 1040px;
+  height: 585px;
+  background: var(--noite);
+  z-index: 20;
+  transition: left 480ms ease, top 480ms ease, width 480ms ease, height 480ms ease;
+}
+.janela-video video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+.janela-video.expandida {
+  left: 60px;
+  top: 34px;
+  width: 1800px;
+  height: 1012px;
+  box-shadow: 0 30px 80px rgba(19, 32, 58, 0.35);
+}
+
+.veu {
+  position: absolute;
+  inset: 0;
+  background: rgba(19, 32, 58, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 480ms ease;
+  z-index: 10;
+}
+.veu.ativo { opacity: 1; }
+
+/* Gatilhos invisíveis: contam como "passos" do slide mas não aparecem */
+.gatilho { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+.instrucoes-teste {
+  position: absolute;
+  left: 1260px;
+  top: 300px;
+  width: 540px;
+  font-size: 30px;
+  line-height: 1.45;
+  color: var(--grafite);
+}
+.instrucoes-teste p { margin: 0 0 22px; }
+.instrucoes-teste kbd {
+  font-family: var(--sem-serifa);
+  font-weight: 600;
+  color: var(--tinta);
+  border: 2px solid var(--nevoa);
+  padding: 0 10px;
+}
+
+
+/* ---------- Acessibilidade: movimento reduzido --------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .abertura.present .mapa-abertura .aresta,
+  .marcador.fragment.visible { animation: none; stroke-dashoffset: 0; }
+  .janela-video, .veu { transition: none; }
+}

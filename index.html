@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Delinéia · Defesa de tese · Rafael Antunes dos Santos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Biblioteca reveal.js (cópia local em /lib, funciona sem internet) -->
+  <link rel="stylesheet" href="lib/reveal/reset.css">
+  <link rel="stylesheet" href="lib/reveal/reveal.css">
+
+  <!-- Nosso tema: cores, fontes, leiaute -->
+  <link rel="stylesheet" href="css/tema.css">
+</head>
+<body>
+
+<!-- =====================================================================
+     ÍCONES REUTILIZÁVEIS
+     Desenhados uma única vez. Para usar em qualquer slide:
+     <svg><use href="#icone-coocorrencia"></use></svg>
+     ===================================================================== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="icone-coocorrencia" viewBox="0 0 48 48">
+    <line x1="10" y1="36" x2="24" y2="12" stroke="#1C2B45" stroke-width="2.4"/>
+    <line x1="24" y1="12" x2="39" y2="32" stroke="#1C2B45" stroke-width="2.4"/>
+    <line x1="10" y1="36" x2="39" y2="32" stroke="#1C2B45" stroke-width="2.4"/>
+    <line x1="39" y1="32" x2="42" y2="10" stroke="#1C2B45" stroke-width="2.4"/>
+    <circle cx="10" cy="36" r="5" fill="#F7F7F4" stroke="#1C2B45" stroke-width="2.4"/>
+    <circle cx="42" cy="10" r="4" fill="#F7F7F4" stroke="#1C2B45" stroke-width="2.4"/>
+    <circle cx="39" cy="32" r="5" fill="#F7F7F4" stroke="#1C2B45" stroke-width="2.4"/>
+    <circle cx="24" cy="12" r="6" fill="#B3893A"/>
+  </symbol>
+  <symbol id="icone-llm" viewBox="0 0 48 48">
+    <rect x="5" y="7" width="38" height="34" fill="none" stroke="#1C2B45" stroke-width="2.4"/>
+    <line x1="12" y1="17" x2="36" y2="17" stroke="#1C2B45" stroke-width="2.4"/>
+    <line x1="12" y1="24" x2="31" y2="24" stroke="#1C2B45" stroke-width="2.4"/>
+    <line x1="12" y1="31" x2="22" y2="31" stroke="#1C2B45" stroke-width="2.4"/>
+    <rect x="25" y="28" width="6" height="6" fill="#B3893A"/>
+  </symbol>
+</svg>
+
+
+<div class="reveal">
+<div class="slides">
+
+
+<!-- =====================================================================
+     SLIDE 1 · ABERTURA
+     ===================================================================== -->
+<section class="abertura escuro" data-background-color="#13203A" data-rodape="nao">
+  <div class="quadro">
+
+    <div class="instituicao">
+      Universidade Federal do Rio Grande do Sul<br>
+      Programa de Pós-Graduação em Informática na Educação
+    </div>
+
+    <h1 class="nome-sistema">Delinéia</h1>
+    <p class="subtitulo">Grandes modelos de linguagem e análise de coocorrência de palavras para o delineamento do escopo de projetos de pesquisa no ensino superior</p>
+
+    <div class="autoria">
+      <strong>Rafael Antunes dos Santos</strong><br>
+      Orientador Prof. Dr. Eliseo Berni Reategui<br>
+      Defesa de tese, Porto Alegre, 8 de outubro de 2026
+    </div>
+
+    <!-- Mapa de coocorrência com os termos da própria tese -->
+    <svg class="mapa-abertura" viewBox="0 0 860 900" aria-hidden="true">
+      <g>
+        <line class="aresta" x1="430" y1="430" x2="230" y2="270"/>
+        <line class="aresta" x1="430" y1="430" x2="650" y2="230"/>
+        <line class="aresta" x1="430" y1="430" x2="720" y2="500"/>
+        <line class="aresta" x1="430" y1="430" x2="270" y2="640"/>
+        <line class="aresta" x1="430" y1="430" x2="100" y2="450"/>
+        <line class="aresta" x1="230" y1="270" x2="650" y2="230"/>
+        <line class="aresta" x1="230" y1="270" x2="100" y2="450"/>
+        <line class="aresta" x1="720" y1="500" x2="560" y2="720"/>
+        <line class="aresta" x1="560" y1="720" x2="270" y2="640"/>
+        <line class="aresta" x1="270" y1="640" x2="180" y2="830"/>
+        <line class="aresta" x1="650" y1="230" x2="470" y2="110"/>
+        <line class="aresta" x1="560" y1="720" x2="760" y2="790"/>
+        <line class="aresta" x1="650" y1="230" x2="720" y2="500"/>
+        <line class="aresta" x1="230" y1="270" x2="470" y2="110"/>
+      </g>
+      <circle class="no" cx="230" cy="270" r="11"/>
+      <circle class="no" cx="650" cy="230" r="11"/>
+      <circle class="no" cx="720" cy="500" r="11"/>
+      <circle class="no" cx="270" cy="640" r="12"/>
+      <circle class="no" cx="100" cy="450" r="8"/>
+      <circle class="no" cx="560" cy="720" r="9"/>
+      <circle class="no" cx="180" cy="830" r="7"/>
+      <circle class="no" cx="470" cy="110" r="7"/>
+      <circle class="no" cx="760" cy="790" r="7"/>
+      <circle class="no central" cx="430" cy="430" r="18"/>
+
+      <text x="214" y="246" text-anchor="end">palavras-chave</text>
+      <text x="668" y="222">coocorrência</text>
+      <text x="740" y="508">LLM</text>
+      <text x="252" y="686" text-anchor="middle">autoeficácia</text>
+      <text x="100" y="494" text-anchor="middle">busca</text>
+      <text x="578" y="766" text-anchor="middle">feedback</text>
+      <text x="200" y="838">formação em pesquisa</text>
+      <text x="488" y="100">relevância</text>
+      <text x="760" y="836" text-anchor="middle">metacognição</text>
+      <text class="central" x="446" y="484">escopo</text>
+    </svg>
+
+  </div>
+
+  <aside class="notes">
+    [0:30] Cumprimentar a banca pelo nome, agradecer a presença e apresentar o título.
+    Enquanto o mapa se desenha, dizer que a imagem é um grafo de coocorrência
+    montado com os termos da própria tese, e que esse tipo de mapa vai
+    acompanhar toda a apresentação.
+  </aside>
+</section>
+
+
+<!-- =====================================================================
+     SLIDE 2 · TEMA
+     Modelo assertion-evidence: a afirmação no título e a evidência abaixo.
+     Sequência de cliques: busca sensível, busca específica, escopo delineado.
+     ===================================================================== -->
+<section class="tema" data-secao="Introdução">
+  <div class="quadro">
+
+    <h2 class="afirmacao">Delinear o escopo de um projeto exige equilibrar sensibilidade e especificidade na busca bibliográfica</h2>
+
+    <div class="evidencia">
+      <div class="chave-leitura">
+        <span>
+          <svg viewBox="0 0 34 34"><circle cx="17" cy="17" r="13" fill="none" stroke="#B3893A" stroke-width="3" stroke-dasharray="7 5"/></svg>
+          o que interessa ao projeto
+        </span>
+        <span>
+          <svg viewBox="0 0 34 34"><circle cx="17" cy="17" r="13" fill="rgba(28,43,69,.09)" stroke="#1C2B45" stroke-width="2.4"/></svg>
+          o que a busca recupera
+        </span>
+      </div>
+
+      <div class="tres-buscas">
+        <div class="busca fragment" data-fragment-index="1">
+          <svg viewBox="0 0 460 460">
+            <circle class="recuperado" cx="230" cy="230" r="215"/>
+            <circle class="relevante" cx="230" cy="230" r="120"/>
+          </svg>
+          <h3>Busca sensível</h3>
+          <p>recupera muito além do projeto</p>
+        </div>
+
+        <div class="busca fragment" data-fragment-index="2">
+          <svg viewBox="0 0 460 460">
+            <circle class="relevante" cx="230" cy="230" r="120"/>
+            <circle class="recuperado" cx="255" cy="215" r="64"/>
+          </svg>
+          <h3>Busca específica</h3>
+          <p>deixa de fora parte do que importa</p>
+        </div>
+
+        <div class="busca alvo fragment" data-fragment-index="3">
+          <svg viewBox="0 0 460 460">
+            <circle class="recuperado" cx="236" cy="226" r="126"/>
+            <circle class="relevante" cx="230" cy="230" r="120"/>
+          </svg>
+          <h3>Escopo delineado</h3>
+          <p>aproxima a busca do projeto</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Referências: aparecem com a fala e somem no clique seguinte -->
+    <div class="referencias">
+      <span class="ref fragment fade-out" data-fragment-index="1">Cooksey; McDonald, 2019</span>
+      <span class="ref fragment fade-in-then-out" data-fragment-index="1">Alves; Vasconcellos; Nogueira, 2022</span>
+      <span class="ref fragment fade-in-then-out" data-fragment-index="3">Vakkari, 2001; Efendioğlu; Sendurur, 2023</span>
+    </div>
+
+  </div>
+
+  <aside class="notes">
+    [1:15] Ao entrar, ler a afirmação com calma. Cooksey e McDonald descrevem o
+    projeto como uma sequência de concessões entre o ideal e o viável.
+    Clique 1. A busca sensível traz tudo e afoga o estudante.
+    Clique 2. A busca específica é limpa, mas perde referências que importam.
+    Clique 3. O delineamento aproxima as duas figuras. Vakkari mostra que esse
+    ajuste depende de conhecimento de domínio que o estudante ainda não tem.
+  </aside>
+</section>
+
+
+<!-- =====================================================================
+     SLIDE 3 · CONTEXTO
+     Cadeia de causa: volume da literatura, busca manual, respostas técnicas.
+     Primeira aparição dos marcadores de coocorrência e de LLM.
+     ===================================================================== -->
+<section class="contexto" data-secao="Introdução">
+  <div class="quadro">
+
+    <h2 class="afirmacao">O volume da literatura científica torna a busca manual exaustiva e sujeita a vieses</h2>
+
+    <div class="evidencia cadeia">
+
+      <!-- Elo 1: volume (visível ao entrar) -->
+      <div class="elo">
+        <svg class="pictograma" viewBox="0 0 390 252" aria-hidden="true">
+          <defs>
+            <pattern id="docs-volume" width="30" height="36" patternUnits="userSpaceOnUse">
+              <rect x="5" y="4" width="20" height="28" fill="none" stroke="#1C2B45" stroke-width="2"/>
+            </pattern>
+          </defs>
+          <rect x="0" y="0" width="390" height="252" fill="url(#docs-volume)"/>
+        </svg>
+        <h3>Volume crescente</h3>
+        <p>a literatura cresce em ritmo acelerado</p>
+      </div>
+
+      <svg class="seta fragment" data-fragment-index="1" viewBox="0 0 80 40" aria-hidden="true">
+        <line x1="4" y1="20" x2="70" y2="20"/><polyline points="58,8 72,20 58,32"/>
+      </svg>
+
+      <!-- Elo 2: busca manual (clique 1) -->
+      <div class="elo fragment" data-fragment-index="1">
+        <svg class="pictograma" viewBox="0 0 390 252" aria-hidden="true">
+          <defs>
+            <pattern id="docs-busca" width="30" height="36" patternUnits="userSpaceOnUse">
+              <rect x="5" y="4" width="20" height="28" fill="none" stroke="#1C2B45" stroke-width="2"/>
+            </pattern>
+            <clipPath id="lente-busca"><circle cx="150" cy="110" r="70"/></clipPath>
+          </defs>
+          <rect x="0" y="0" width="390" height="252" fill="url(#docs-busca)" opacity="0.22"/>
+          <rect x="0" y="0" width="390" height="252" fill="url(#docs-busca)" clip-path="url(#lente-busca)"/>
+          <circle cx="150" cy="110" r="70" fill="none" stroke="#B3893A" stroke-width="5"/>
+          <line x1="200" y1="160" x2="262" y2="222" stroke="#B3893A" stroke-width="9" stroke-linecap="round"/>
+        </svg>
+        <h3>Busca manual</h3>
+        <p>exaustiva e sujeita a vieses de seleção</p>
+      </div>
+
+      <svg class="seta fragment" data-fragment-index="2" viewBox="0 0 80 40" aria-hidden="true">
+        <line x1="4" y1="20" x2="70" y2="20"/><polyline points="58,8 72,20 58,32"/>
+      </svg>
+
+      <!-- Elo 3: respostas técnicas (cliques 2 e 3) -->
+      <div class="elo respostas">
+        <p class="apoio com-icone fragment" data-fragment-index="2">
+          <svg><use href="#icone-coocorrencia"></use></svg>
+          <span>A análise de coocorrência revela a estrutura semântica de um campo</span>
+        </p>
+        <p class="apoio com-icone fragment" data-fragment-index="3">
+          <svg><use href="#icone-llm"></use></svg>
+          <span>Os LLMs processam e organizam grandes volumes de texto</span>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="marcadores">
+      <span class="marcador fragment" data-fragment-index="2"><svg><use href="#icone-coocorrencia"></use></svg>coocorrência</span>
+      <span class="marcador fragment" data-fragment-index="3"><svg><use href="#icone-llm"></use></svg>LLM</span>
+    </div>
+
+    <div class="referencias">
+      <span class="ref fragment fade-out" data-fragment-index="1">Meadows, 1999; Hanson et al., 2024</span>
+      <span class="ref fragment fade-in-then-out" data-fragment-index="1">Grames et al., 2019; Haddaway et al., 2020</span>
+      <span class="ref fragment fade-in-then-out" data-fragment-index="2">Callon et al., 1983; Klarin, 2024</span>
+      <span class="ref fragment fade-in-then-out" data-fragment-index="3">Xu et al., 2024; Peres et al., 2023</span>
+    </div>
+
+  </div>
+
+  <aside class="notes">
+    [1:30] A explosão da informação é um problema antigo, descrito por Meadows,
+    e hoje pressiona a capacidade de leitura e revisão da academia (Hanson et al.).
+    Clique 1. A consequência para quem pesquisa é uma busca manual exaustiva,
+    que enxerga pouco de cada vez e fica sujeita a vieses.
+    Clique 2. Primeira resposta técnica, a análise de coocorrência. Apontar o ícone
+    no canto e avisar que ele volta sempre que o conceito voltar.
+    Clique 3. Segunda resposta, os LLMs, com o seu próprio ícone.
+  </aside>
+</section>
+
+
+<!-- =====================================================================
+     SLIDE 4 · JUSTIFICATIVA
+     ===================================================================== -->
+<section class="justificativa" data-secao="Introdução">
+  <div class="quadro">
+
+    <h2 class="afirmacao">Diante da mesma questão, pessoas diferentes escolhem termos diferentes e recuperam documentos diferentes</h2>
+
+    <div class="evidencia duas-colunas" style="grid-template-columns: 820px 1fr; column-gap: 110px; align-items:start; padding-top:64px">
+      <div class="sobreposicao">
+          <svg viewBox="0 0 818 428">
+            <rect class="faixa" x="384" y="26" width="36" height="314"/>
+            <text x="0" y="69">busca A</text>
+            <circle class="doc" cx="150" cy="60" r="12"/>
+            <circle class="doc vazio" cx="186" cy="60" r="12"/>
+            <circle class="doc" cx="222" cy="60" r="12"/>
+            <circle class="doc" cx="258" cy="60" r="12"/>
+            <circle class="doc vazio" cx="294" cy="60" r="12"/>
+            <circle class="doc vazio" cx="330" cy="60" r="12"/>
+            <circle class="doc vazio" cx="366" cy="60" r="12"/>
+            <circle class="doc ouro" cx="402" cy="60" r="12"/>
+            <circle class="doc vazio" cx="438" cy="60" r="12"/>
+            <circle class="doc" cx="474" cy="60" r="12"/>
+            <circle class="doc vazio" cx="510" cy="60" r="12"/>
+            <circle class="doc vazio" cx="546" cy="60" r="12"/>
+            <circle class="doc" cx="582" cy="60" r="12"/>
+            <circle class="doc vazio" cx="618" cy="60" r="12"/>
+            <circle class="doc vazio" cx="654" cy="60" r="12"/>
+            <circle class="doc" cx="690" cy="60" r="12"/>
+            <circle class="doc vazio" cx="726" cy="60" r="12"/>
+            <circle class="doc vazio" cx="762" cy="60" r="12"/>
+            <text x="0" y="151">busca B</text>
+            <circle class="doc vazio" cx="150" cy="142" r="12"/>
+            <circle class="doc" cx="186" cy="142" r="12"/>
+            <circle class="doc vazio" cx="222" cy="142" r="12"/>
+            <circle class="doc" cx="258" cy="142" r="12"/>
+            <circle class="doc vazio" cx="294" cy="142" r="12"/>
+            <circle class="doc vazio" cx="330" cy="142" r="12"/>
+            <circle class="doc vazio" cx="366" cy="142" r="12"/>
+            <circle class="doc ouro" cx="402" cy="142" r="12"/>
+            <circle class="doc" cx="438" cy="142" r="12"/>
+            <circle class="doc vazio" cx="474" cy="142" r="12"/>
+            <circle class="doc vazio" cx="510" cy="142" r="12"/>
+            <circle class="doc vazio" cx="546" cy="142" r="12"/>
+            <circle class="doc vazio" cx="582" cy="142" r="12"/>
+            <circle class="doc" cx="618" cy="142" r="12"/>
+            <circle class="doc vazio" cx="654" cy="142" r="12"/>
+            <circle class="doc vazio" cx="690" cy="142" r="12"/>
+            <circle class="doc" cx="726" cy="142" r="12"/>
+            <circle class="doc vazio" cx="762" cy="142" r="12"/>
+            <text x="0" y="233">busca C</text>
+            <circle class="doc vazio" cx="150" cy="224" r="12"/>
+            <circle class="doc vazio" cx="186" cy="224" r="12"/>
+            <circle class="doc vazio" cx="222" cy="224" r="12"/>
+            <circle class="doc vazio" cx="258" cy="224" r="12"/>
+            <circle class="doc" cx="294" cy="224" r="12"/>
+            <circle class="doc" cx="330" cy="224" r="12"/>
+            <circle class="doc vazio" cx="366" cy="224" r="12"/>
+            <circle class="doc ouro" cx="402" cy="224" r="12"/>
+            <circle class="doc vazio" cx="438" cy="224" r="12"/>
+            <circle class="doc vazio" cx="474" cy="224" r="12"/>
+            <circle class="doc" cx="510" cy="224" r="12"/>
+            <circle class="doc" cx="546" cy="224" r="12"/>
+            <circle class="doc vazio" cx="582" cy="224" r="12"/>
+            <circle class="doc vazio" cx="618" cy="224" r="12"/>
+            <circle class="doc" cx="654" cy="224" r="12"/>
+            <circle class="doc vazio" cx="690" cy="224" r="12"/>
+            <circle class="doc vazio" cx="726" cy="224" r="12"/>
+            <circle class="doc vazio" cx="762" cy="224" r="12"/>
+            <text x="0" y="315">busca D</text>
+            <circle class="doc vazio" cx="150" cy="306" r="12"/>
+            <circle class="doc vazio" cx="186" cy="306" r="12"/>
+            <circle class="doc vazio" cx="222" cy="306" r="12"/>
+            <circle class="doc vazio" cx="258" cy="306" r="12"/>
+            <circle class="doc vazio" cx="294" cy="306" r="12"/>
+            <circle class="doc vazio" cx="330" cy="306" r="12"/>
+            <circle class="doc" cx="366" cy="306" r="12"/>
+            <circle class="doc ouro" cx="402" cy="306" r="12"/>
+            <circle class="doc vazio" cx="438" cy="306" r="12"/>
+            <circle class="doc" cx="474" cy="306" r="12"/>
+            <circle class="doc vazio" cx="510" cy="306" r="12"/>
+            <circle class="doc vazio" cx="546" cy="306" r="12"/>
+            <circle class="doc vazio" cx="582" cy="306" r="12"/>
+            <circle class="doc vazio" cx="618" cy="306" r="12"/>
+            <circle class="doc vazio" cx="654" cy="306" r="12"/>
+            <circle class="doc" cx="690" cy="306" r="12"/>
+            <circle class="doc vazio" cx="726" cy="306" r="12"/>
+            <circle class="doc" cx="762" cy="306" r="12"/>
+          </svg>
+        <div class="legenda">Esquema dos documentos recuperados por quatro buscas para a mesma questão. A coluna dourada é o único documento comum a todas.</div>
+      </div>
+
+      <div>
+        <p class="apoio fragment" data-fragment-index="1" style="font-size:33px">Escolher e combinar termos exige um conhecimento de domínio que o estudante ainda está construindo</p>
+        <p class="apoio fragment" data-fragment-index="2" style="font-size:33px">Os protocolos para construir estratégias de busca foram desenhados para revisores experientes</p>
+        <p class="apoio fragment" data-fragment-index="3" style="font-size:33px">O ART/REV, pensado para iniciantes, trabalha com citações e deixa de fora o conteúdo semântico</p>
+      </div>
+    </div>
+
+    <div class="marcadores">
+      <span class="marcador fragment" data-fragment-index="3"><svg><use href="#icone-coocorrencia"></use></svg>coocorrência</span>
+    </div>
+
+    <div class="referencias">
+      <span class="ref fragment fade-out" data-fragment-index="1">Saracevic; Kantor, 1988b</span>
+      <span class="ref fragment fade-in-then-out" data-fragment-index="1">Fidel, 1991a; Vakkari, 2001</span>
+      <span class="ref fragment fade-in-then-out" data-fragment-index="2">Bramer et al., 2018a; Grames et al., 2019</span>
+      <span class="ref fragment fade-in-then-out" data-fragment-index="3">Walsh et al., 2022</span>
+    </div>
+
+  </div>
+
+  <aside class="notes">
+    [1:30] O esquema representa a baixa sobreposição descrita por Saracevic e Kantor.
+    Cada linha é uma busca, cada círculo cheio um documento recuperado. A coluna
+    dourada é o pouco que as quatro buscas têm em comum.
+    Clique 1. Para o estudante isso é mais grave, falta vocabulário de domínio.
+    Clique 2. As soluções existentes pressupõem quem já domina os protocolos.
+    Clique 3. O ART/REV chega aos iniciantes, mas fica nas citações. Aqui volta o
+    ícone da coocorrência, porque é esse o espaço que o Delinéia ocupa.
+  </aside>
+</section>
+
+
+<!-- =====================================================================
+     SLIDE 5 · QUESTÃO DE PESQUISA (único slide de leitura)
+     ===================================================================== -->
+<section class="leitura" data-secao="Introdução">
+  <div class="quadro">
+    <div class="rotulo">Questão de pesquisa</div>
+    <blockquote>De que maneira a avaliação automatizada das definições preliminares de um projeto afeta a autoeficácia dos estudantes no delineamento de suas propostas de investigação?</blockquote>
+  </div>
+
+  <aside class="notes">
+    [0:40] Ler a questão em voz alta, sem pressa, e deixar um segundo de silêncio
+    antes de avançar para os objetivos.
+  </aside>
+</section>
+
+
+<!-- =====================================================================
+     SLIDE DE TESTE · VÍDEO  (apagar antes da defesa)
+     Cada clique de avanço dispara uma ação no vídeo.
+     ===================================================================== -->
+<section class="teste-video" data-secao="Delinéia">
+  <div class="quadro">
+    <h2 class="afirmacao">Teste do vídeo acionado pela fala</h2>
+
+    <div class="veu"></div>
+    <div class="janela-video">
+      <video src="midia/videos/teste.mp4" poster="midia/imagens/teste-poster.jpg" preload="auto" muted playsinline></video>
+    </div>
+
+    <div class="instrucoes-teste">
+      <p>Avançar uma vez inicia o vídeo.</p>
+      <p>Avançar de novo expande a janela.</p>
+      <p>Avançar mais uma vez recolhe e pausa.</p>
+      <p>Durante o ensaio, <kbd>V</kbd> pausa ou retoma e <kbd>X</kbd> expande ou recolhe.</p>
+    </div>
+
+    <!-- Gatilhos invisíveis, na ordem em que acontecem -->
+    <span class="gatilho fragment" data-video-acao="tocar"></span>
+    <span class="gatilho fragment" data-video-acao="expandir"></span>
+    <span class="gatilho fragment" data-video-acao="recolher"></span>
+  </div>
+
+  <aside class="notes">
+    Slide de teste. Apagar antes da defesa.
+  </aside>
+</section>
+
+
+</div>
+</div>
+
+<script src="lib/reveal/reveal.js"></script>
+<script src="lib/reveal/plugin/notes/notes.js"></script>
+<script src="js/apresentacao.js"></script>
+</body>
+</html>
