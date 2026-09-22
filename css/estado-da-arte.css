@@ -1,0 +1,257 @@
+/* =====================================================================
+   SLIDE DO ESTADO DA ARTE
+   Tudo aqui está preso à classe .estado-da-arte, então nada deste
+   arquivo afeta os outros slides. As cores vêm das variáveis do
+   tema.css, e as fontes são as mesmas da apresentação.
+   ===================================================================== */
+
+.estado-da-arte .quadro {
+  display: block;
+  padding: 56px 72px 0;
+}
+
+/* ---------- Cabeçalho ---------- */
+.estado-da-arte .cabecalho-eda {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 60px;
+  border-bottom: 1px solid var(--nevoa);
+  padding-bottom: 16px;
+}
+.estado-da-arte .afirmacao {
+  font-size: 42px;
+  line-height: 1.12;
+  max-width: 1180px;
+}
+.estado-da-arte .subtitulo-eda {
+  margin: 10px 0 0;
+  font-size: 22px;
+  color: var(--grafite);
+}
+.estado-da-arte .contagem {
+  text-align: right;
+  font-size: 19px;
+  line-height: 1.4;
+  color: var(--grafite);
+  max-width: 440px;
+  padding-bottom: 4px;
+}
+.estado-da-arte .contagem strong { color: var(--tinta); font-weight: 600; }
+
+/* ---------- Eixo que atravessa as frentes ---------- */
+.estado-da-arte .eixo { position: relative; height: 34px; margin-top: 18px; }
+.estado-da-arte .feixe {
+  position: absolute;
+  left: 0; right: 0; top: 24px;
+  height: 3px;
+  background: linear-gradient(to right, var(--nevoa) 0%, var(--tinta) 55%, var(--ouro) 92%);
+  transform-origin: left center;
+}
+.estado-da-arte.present .feixe { animation: tracar 1100ms cubic-bezier(.2,.7,.2,1) both; }
+.estado-da-arte .feixe::after {
+  content: "";
+  position: absolute;
+  right: 0; top: 50%;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--ouro);
+  transform: translateY(-50%);
+  box-shadow: 0 0 0 6px rgba(179, 137, 58, .22);
+}
+.estado-da-arte .rotulos-eixo {
+  position: absolute;
+  left: 0; right: 300px; top: 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  color: var(--grafite);
+}
+@keyframes tracar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* ---------- Frentes de inovação ---------- */
+.estado-da-arte .frentes {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr) 0.92fr;
+  column-gap: 22px;
+  height: 474px;
+  margin-top: 2px;
+}
+.estado-da-arte .coluna { display: flex; flex-direction: column; gap: 12px; min-height: 0; }
+.estado-da-arte .frente { display: flex; flex-direction: column; min-height: 0; }
+.estado-da-arte .frente header {
+  border-left: 3px solid var(--ouro);
+  padding-left: 11px;
+  margin-bottom: 8px;
+}
+.estado-da-arte .frente h3 {
+  margin: 0;
+  font-family: var(--serifa);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--tinta);
+}
+.estado-da-arte .frente h3 .secao { font-family: var(--sem-serifa); font-weight: 400; color: var(--grafite); margin-right: 7px; }
+.estado-da-arte .frente .mudanca { margin: 3px 0 0; font-size: 14px; line-height: 1.2; color: var(--grafite); }
+.estado-da-arte .lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 3px; }
+
+/* Item: miniatura mais nome e referência */
+.estado-da-arte .item {
+  all: unset;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 68px 1fr;
+  column-gap: 10px;
+  align-items: center;
+  height: 40px;
+  width: 100%;
+  cursor: default;
+}
+.estado-da-arte .item.com-imagem { cursor: zoom-in; }
+.estado-da-arte .item:focus-visible { outline: 3px solid var(--ouro); outline-offset: 2px; }
+.estado-da-arte .miniatura {
+  width: 68px; height: 38px;
+  border: 1px solid var(--nevoa);
+  background:
+    repeating-linear-gradient(135deg, transparent 0 7px, rgba(28, 43, 69, .08) 7px 8px),
+    #E8EAE6;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+.estado-da-arte .miniatura img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: none; }
+.estado-da-arte .com-imagem .miniatura { background: #fff; }
+.estado-da-arte .com-imagem .miniatura img { display: block; }
+.estado-da-arte .texto { min-width: 0; }
+.estado-da-arte .nome {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--tinta);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.estado-da-arte .ref {
+  display: block;
+  font-size: 12.5px;
+  color: var(--grafite);
+  line-height: 1.2;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+/* ---------- Coluna do Delinéia, único ponto de destaque ---------- */
+.estado-da-arte .delineia {
+  background: var(--noite);
+  color: var(--papel);
+  border-top: 5px solid var(--ouro-claro);
+  padding: 18px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.estado-da-arte .delineia h3 {
+  font-family: var(--serifa);
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 1;
+  margin: 0;
+  color: var(--papel);
+}
+.estado-da-arte .tela {
+  all: unset;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border: 1px solid rgba(247, 247, 244, .3);
+  background:
+    repeating-linear-gradient(135deg, transparent 0 9px, rgba(201, 164, 92, .16) 9px 10px),
+    #1B3357;
+  overflow: hidden;
+}
+.estado-da-arte .tela img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: none; }
+.estado-da-arte .tela.com-imagem { cursor: zoom-in; background: #fff; }
+.estado-da-arte .tela.com-imagem img { display: block; }
+.estado-da-arte .tela:focus-visible { outline: 3px solid var(--ouro-claro); outline-offset: 2px; }
+.estado-da-arte .delineia p { margin: 0; font-size: 16px; line-height: 1.35; color: rgba(247, 247, 244, .88); }
+.estado-da-arte .correlato {
+  margin-top: auto;
+  border-top: 1px solid rgba(247, 247, 244, .22);
+  padding-top: 12px;
+}
+.estado-da-arte .correlato .rotulo { font-size: 14px; color: rgba(247, 247, 244, .7); margin: 0 0 8px; }
+.estado-da-arte .correlato .nome { color: var(--papel); }
+.estado-da-arte .correlato .ref { color: rgba(247, 247, 244, .7); }
+.estado-da-arte .correlato .miniatura {
+  border-color: rgba(247, 247, 244, .3);
+  background: repeating-linear-gradient(135deg, transparent 0 7px, rgba(201, 164, 92, .16) 7px 8px), #1B3357;
+}
+
+/* ---------- Base: ferramentas, modelos e infraestruturas ---------- */
+.estado-da-arte .base {
+  border-top: 1px solid var(--nevoa);
+  margin-top: 14px;
+  padding-top: 12px;
+  display: grid;
+  grid-template-columns: 5fr 4fr 3fr 4fr;
+  column-gap: 32px;
+}
+.estado-da-arte .grupo h3 { margin: 0 0 8px; font-size: 16px; font-weight: 600; color: var(--tinta); }
+.estado-da-arte .grade {
+  list-style: none; margin: 0; padding: 0;
+  display: grid;
+  grid-template-rows: repeat(2, 70px);
+  grid-auto-flow: column;
+  gap: 8px;
+}
+.estado-da-arte .cols-5 .grade { grid-template-columns: repeat(5, 1fr); }
+.estado-da-arte .cols-4 .grade { grid-template-columns: repeat(4, 1fr); }
+.estado-da-arte .cols-3 .grade { grid-template-columns: repeat(3, 1fr); }
+.estado-da-arte .ficha {
+  all: unset;
+  box-sizing: border-box;
+  width: 100%; height: 70px;
+  display: grid;
+  grid-template-rows: 1fr 18px;
+  background: #fff;
+  border: 1px solid var(--nevoa);
+  padding: 6px 8px 4px;
+}
+.estado-da-arte .ficha:focus-visible { outline: 3px solid var(--ouro); outline-offset: 2px; }
+.estado-da-arte .ficha.com-imagem { cursor: zoom-in; }
+.estado-da-arte .ficha .logo { display: grid; place-items: center; min-height: 0; }
+.estado-da-arte .ficha .logo img { max-width: 100%; max-height: 38px; object-fit: contain; display: none; }
+.estado-da-arte .ficha.com-imagem .logo img { display: block; }
+.estado-da-arte .marca-texto { font-size: 16px; font-weight: 600; color: #8C97A6; text-align: center; line-height: 1.05; }
+.estado-da-arte .ficha.com-imagem .marca-texto { display: none; }
+.estado-da-arte .legenda-ficha {
+  font-size: 13px; color: var(--grafite); text-align: center;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+/* ---------- Créditos ---------- */
+.estado-da-arte .creditos-eda {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: var(--grafite);
+}
+
+/* ---------- Janela de ampliação ---------- */
+dialog#ampliacao { border: none; padding: 0; background: var(--papel); max-width: 88vw; max-height: 88vh; box-shadow: 0 30px 80px rgba(19, 32, 58, .45); }
+dialog#ampliacao::backdrop { background: rgba(19, 32, 58, .72); }
+dialog#ampliacao img { display: block; max-width: 88vw; max-height: calc(88vh - 60px); object-fit: contain; background: #fff; }
+dialog#ampliacao figcaption {
+  font-family: var(--sem-serifa);
+  font-size: 19px;
+  padding: 15px 20px;
+  color: var(--tinta);
+  display: flex;
+  justify-content: space-between;
+  gap: 26px;
+}
+dialog#ampliacao figcaption span { color: var(--grafite); }
+
+@media (prefers-reduced-motion: reduce) {
+  .estado-da-arte.present .feixe { animation: none; }
+}

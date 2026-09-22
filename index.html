@@ -11,6 +11,7 @@
 
   <!-- Nosso tema: cores, fontes, leiaute -->
   <link rel="stylesheet" href="css/tema.css">
+  <link rel="stylesheet" href="css/estado-da-arte.css">
 </head>
 <body>
 
@@ -419,6 +420,47 @@
   </aside>
 </section>
 
+<!-- =====================================================================
+     SLIDE · ESTADO DA ARTE
+     O conteúdo (listas de sistemas) fica em js/estado-da-arte.js.
+     As imagens ficam em midia/estado-da-arte/.
+     ===================================================================== -->
+<section class="estado-da-arte" data-secao="Referencial teórico">
+  <div class="quadro">
+
+    <header class="cabecalho-eda">
+      <div>
+        <h2 class="afirmacao">Os sistemas existentes avançam da exploração da literatura até o desenho da pesquisa</h2>
+        <p class="subtitulo-eda">Tecnologias de orientação bibliométrica e inteligência artificial generativa</p>
+      </div>
+      <div class="contagem" id="eda-contagem"></div>
+    </header>
+
+    <div class="eixo" aria-hidden="true">
+      <div class="feixe"></div>
+      <div class="rotulos-eixo">
+        <span>exploração da literatura</span>
+        <span>síntese</span>
+        <span>desenho de pesquisa</span>
+      </div>
+    </div>
+
+    <div class="frentes" id="eda-frentes"></div>
+
+    <div class="base" id="eda-base"></div>
+
+    <p class="creditos-eda">Fonte: elaborado pelo autor com base no capítulo 4 da tese. Logotipos das respectivas organizações. Figuras dos protótipos reproduzidas dos artigos originais para fins acadêmicos.</p>
+
+  </div>
+
+  <aside class="notes">
+    [1:00] Panorama dos sistemas que apoiam o trabalho com a literatura,
+    organizados da exploração até o desenho da pesquisa, sobre a base de
+    ferramentas, modelos e infraestruturas que os sustenta.
+    O Delinéia ocupa a ponta direita do eixo, junto ao desenho de pesquisa.
+    Clicar numa miniatura amplia a figura, caso a banca peça detalhe.
+  </aside>
+</section>
 
 <!-- =====================================================================
      SLIDE DE TESTE · VÍDEO  (apagar antes da defesa)
@@ -457,6 +499,14 @@
 
 <script src="lib/reveal/reveal.js"></script>
 <script src="lib/reveal/plugin/notes/notes.js"></script>
+<dialog id="ampliacao">
+  <figure style="margin:0">
+    <img id="ampliacao-img" alt="">
+    <figcaption><strong id="ampliacao-nome"></strong><span id="ampliacao-ref"></span></figcaption>
+  </figure>
+</dialog>
+
+<script src="js/estado-da-arte.js"></script>
 <script src="js/apresentacao.js"></script>
 </body>
 </html>

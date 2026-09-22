@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estado da arte | Delinéia</title>
+<!--
+  COMO USAR
+  1. Deixe este index.html numa pasta e crie, ao lado dele, uma pasta chamada img/
+  2. Salve cada imagem em img/ com o nome indicado abaixo. A extensão pode ser
+     .png, .svg, .jpg, .jpeg ou .webp (o slide tenta todas, nessa ordem).
+  3. Enquanto uma imagem não existir, o slide mostra um espaço traçado e o nome
+     da tecnologia, então ele já funciona sem nenhuma imagem.
+  4. Clique numa miniatura carregada para ampliá-la (Esc fecha).
+
+  NOMES DOS ARQUIVOS
+  Base: vosviewer, bibliometrix, citespace, gephi, lens, scival, dimensions, scopus,
+        web-of-science, openalex, bibsonomy, ontoverse, openalexr, pybiblionet,
+        sciconnav, scholarnodes, visualbib, gpt, claude, palm, llama, deepseek, qwen,
+        scite, researchrabbit, semantic-scholar, elicit, undermind, r-discovery,
+        perplexity, consensus
+  4.1:  argo-scholar, drift, litvis, papers101, puresuggest, rtvis, vadis, vitality
+  4.3:  citepeek, citeread, citesee, qlarify, semantic-reader
+  4.7:  comlittee, litforager, vitality-2
+  4.2:  abstractexplorer, crosslit, garden-of-papers, litsense, relatedly,
+        scholarmate, sketchingrelatedwork, synergi, threddy
+  4.5:  aidme, cruise-screening, docflow, scidasynth, victorious
+  4.4:  autosurveygpt, awesomelit, disciplink, ideasynth, iris, litpivot,
+        researchagent, scholareval, scipip
+  Delinéia: delineia, mta
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=Spectral:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --papel: #EDF1F2;
+    --neblina: #DCE4E8;
+    --traco: #A9BCC8;
+    --prussia: #13405E;
+    --tinta: #16242F;
+    --luz: #E9B949;
+    --sans: "IBM Plex Sans Condensed", "Arial Narrow", "Roboto Condensed", Arial, sans-serif;
+    --serif: "Spectral", Georgia, "Times New Roman", serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    background: #25343E;
+  }
+
+  /* Palco fixo 1920x1080, redimensionado para caber na janela */
+  .palco {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    transform-origin: top left;
+    background: var(--papel);
+    color: var(--tinta);
+    font-family: var(--sans);
+    padding: 44px 64px 14px;
+    display: grid;
+    grid-template-rows: 112px 34px 588px 212px 30px;
+    row-gap: 12px;
+  }
+
+  /* Cabeçalho */
+  .cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px solid var(--traco);
+    padding-bottom: 14px;
+  }
+  .cabecalho h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 54px;
+    line-height: 1.05;
+    margin: 0;
+    color: var(--prussia);
+    letter-spacing: -0.01em;
+  }
+  .cabecalho p {
+    margin: 8px 0 0;
+    font-size: 21px;
+    color: #3E5566;
+  }
+  .contagem {
+    text-align: right;
+    font-size: 17px;
+    line-height: 1.35;
+    color: #3E5566;
+    max-width: 440px;
+  }
+  .contagem strong { color: var(--prussia); font-weight: 600; }
+
+  /* Eixo: o feixe que atravessa as frentes até o Delinéia */
+  .eixo {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr) 0.9fr;
+    column-gap: 22px;
+    align-items: center;
+  }
+  .feixe {
+    grid-column: 1 / 7;
+    grid-row: 1;
+    height: 3px;
+    background: linear-gradient(to right, var(--traco) 0%, var(--prussia) 55%, var(--luz) 92%);
+    transform-origin: left center;
+    animation: tracar 1100ms cubic-bezier(.2,.7,.2,1) both;
+  }
+  .feixe::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--luz);
+    transform: translateY(-50%);
+    box-shadow: 0 0 0 6px rgba(233,185,73,.25);
+  }
+  .rotulos-eixo {
+    grid-column: 1 / 6;
+    grid-row: 1;
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    color: #3E5566;
+    transform: translateY(-17px);
+  }
+  .rotulos-eixo span { background: var(--papel); padding: 0 8px; }
+  .rotulos-eixo span:first-child { padding-left: 0; }
+
+  @keyframes tracar {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  /* Frentes de inovação */
+  .frentes {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr) 0.9fr;
+    column-gap: 22px;
+    min-height: 0;
+  }
+  .coluna {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-height: 0;
+  }
+  .frente {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .frente header {
+    border-left: 3px solid var(--prussia);
+    padding: 0 0 0 10px;
+    margin-bottom: 8px;
+  }
+  .frente h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--prussia);
+  }
+  .frente h2 .secao {
+    font-weight: 400;
+    color: #5B7384;
+    margin-right: 6px;
+  }
+  .frente .mudanca {
+    margin: 2px 0 0;
+    font-size: 14px;
+    line-height: 1.25;
+    color: #4A6071;
+  }
+  .lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  /* Item de protótipo: miniatura 16:9 + nome e referência */
+  .item {
+    all: unset;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 84px 1fr;
+    column-gap: 10px;
+    align-items: center;
+    height: 52px;
+    width: 100%;
+    cursor: default;
+    border-radius: 3px;
+  }
+  .item.com-imagem { cursor: zoom-in; }
+  .item:focus-visible { outline: 3px solid var(--luz); outline-offset: 2px; }
+  .miniatura {
+    width: 84px;
+    height: 47px;
+    border: 1px solid var(--traco);
+    background:
+      repeating-linear-gradient(135deg, transparent 0 7px, rgba(19,64,94,.10) 7px 8px),
+      var(--neblina);
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+  }
+  .miniatura img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top left;
+    display: none;
+  }
+  .com-imagem .miniatura { background: #fff; }
+  .com-imagem .miniatura img { display: block; }
+  .texto { min-width: 0; }
+  .nome {
+    display: block;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .ref {
+    display: block;
+    font-size: 13px;
+    color: #587082;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Delinéia: o único ponto de destaque */
+  .delineia {
+    background: var(--prussia);
+    color: var(--papel);
+    border-top: 5px solid var(--luz);
+    padding: 20px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .delineia h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 1;
+    margin: 0;
+    color: #fff;
+  }
+  .delineia .tela {
+    all: unset;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border: 1px solid rgba(237,241,242,.35);
+    background:
+      repeating-linear-gradient(135deg, transparent 0 9px, rgba(233,185,73,.16) 9px 10px),
+      #1B5073;
+    overflow: hidden;
+  }
+  .delineia .tela img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: none; }
+  .delineia .tela.com-imagem { cursor: zoom-in; background: #fff; }
+  .delineia .tela.com-imagem img { display: block; }
+  .delineia .tela:focus-visible { outline: 3px solid var(--luz); outline-offset: 2px; }
+  .delineia p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.35;
+    color: #DDE7EC;
+  }
+  .correlato {
+    margin-top: auto;
+    border-top: 1px solid rgba(237,241,242,.25);
+    padding-top: 12px;
+  }
+  .correlato .rotulo { font-size: 14px; color: #B9CCD7; margin: 0 0 6px; }
+  .correlato .item .nome { color: #fff; }
+  .correlato .item .ref { color: #B9CCD7; }
+  .correlato .miniatura { border-color: rgba(237,241,242,.35); background:
+      repeating-linear-gradient(135deg, transparent 0 7px, rgba(233,185,73,.16) 7px 8px), #1B5073; }
+
+  /* Base: ferramentas, modelos e infraestruturas */
+  .base {
+    border-top: 1px solid var(--traco);
+    padding-top: 12px;
+    display: grid;
+    grid-template-columns: 5fr 4fr 3fr 4fr;
+    column-gap: 30px;
+    min-height: 0;
+  }
+  .grupo h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--prussia);
+  }
+  .grupo .grade {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-rows: repeat(2, 78px);
+    grid-auto-flow: column;
+    gap: 8px;
+  }
+  .grupo.cols-5 .grade { grid-template-columns: repeat(5, 1fr); }
+  .grupo.cols-4 .grade { grid-template-columns: repeat(4, 1fr); }
+  .grupo.cols-3 .grade { grid-template-columns: repeat(3, 1fr); }
+  .ficha {
+    all: unset;
+    box-sizing: border-box;
+    width: 100%;
+    height: 78px;
+    display: grid;
+    grid-template-rows: 1fr 20px;
+    background: #fff;
+    border: 1px solid var(--neblina);
+    border-radius: 3px;
+    padding: 6px 8px 4px;
+  }
+  .ficha:focus-visible { outline: 3px solid var(--luz); outline-offset: 2px; }
+  .ficha.com-imagem { cursor: zoom-in; }
+  .ficha .logo {
+    display: grid;
+    place-items: center;
+    min-height: 0;
+  }
+  .ficha .logo img { max-width: 100%; max-height: 44px; object-fit: contain; display: none; }
+  .ficha.com-imagem .logo img { display: block; }
+  .ficha .logo .marca-texto {
+    font-size: 18px;
+    font-weight: 600;
+    color: #8AA0AF;
+    text-align: center;
+    line-height: 1.05;
+  }
+  .ficha.com-imagem .marca-texto { display: none; }
+  .ficha .legenda {
+    font-size: 12px;
+    color: #587082;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Rodapé */
+  .rodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #5B7384;
+  }
+
+  /* Ampliação */
+  dialog {
+    border: none;
+    padding: 0;
+    background: var(--papel);
+    max-width: 88vw;
+    max-height: 88vh;
+    box-shadow: 0 30px 80px rgba(0,0,0,.45);
+  }
+  dialog::backdrop { background: rgba(22,36,47,.72); }
+  dialog img { display: block; max-width: 88vw; max-height: calc(88vh - 56px); object-fit: contain; background: #fff; }
+  dialog figcaption {
+    font-family: var(--sans);
+    font-size: 18px;
+    padding: 14px 18px;
+    color: var(--tinta);
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  dialog figcaption span { color: #587082; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .feixe { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<main class="palco" id="palco" aria-label="Slide do estado da arte">
+  <header class="cabecalho">
+    <div>
+      <h1>Estado da arte: da exploração da literatura ao desenho de pesquisa</h1>
+      <p>Tecnologias de orientação bibliométrica e inteligência artificial generativa</p>
+    </div>
+    <div class="contagem" id="contagem"></div>
+  </header>
+
+  <div class="eixo" aria-hidden="true">
+    <div class="feixe"></div>
+    <div class="rotulos-eixo">
+      <span>exploração da literatura</span>
+      <span>síntese</span>
+      <span>desenho de pesquisa</span>
+    </div>
+  </div>
+
+  <section class="frentes" id="frentes"></section>
+
+  <section class="base" id="base" aria-label="Ferramentas, modelos e infraestruturas de base"></section>
+
+  <footer class="rodape">
+    <span>Fonte: elaborado pelo autor com base no Capítulo 4 da tese (2026).</span>
+    <span>Logotipos © das respectivas organizações. Figuras dos protótipos reproduzidas dos artigos originais para fins acadêmicos.</span>
+  </footer>
+</main>
+
+<dialog id="ampliacao">
+  <figure style="margin:0">
+    <img id="ampliacao-img" alt="">
+    <figcaption><strong id="ampliacao-nome"></strong><span id="ampliacao-ref"></span></figcaption>
+  </figure>
+</dialog>
+
+<script>
+  /* ---------- Dados (edite aqui) ---------- */
+  const colunas = [
+    [
+      { secao: "4.1", titulo: "Descoberta exploratória", mudanca: "De listas ranqueadas para paisagens interativas", itens: [
+        ["Argo Scholar", "Li et al., 2022", "argo-scholar"],
+        ["DRIFT", "Pocco et al., 2021", "drift"],
+        ["LitVis", "Tian; Li; Yuan, 2023", "litvis"],
+        ["Papers101", "Choe et al., 2021", "papers101"],
+        ["PUREsuggest", "Beck, 2024", "puresuggest"],
+        ["RTVis", "Shen et al., 2023", "rtvis"],
+        ["VADIS", "Qiu et al., 2024", "vadis"],
+        ["VITALITY", "Narechania et al., 2021", "vitality"]
+      ]}
+    ],
+    [
+      { secao: "4.3", titulo: "Leitura orientada por citações", mudanca: "De PDFs estáticos para leitura guiada", itens: [
+        ["CitePeek", "Basti; Davoudi; Neshati, 2025", "citepeek"],
+        ["CiteRead", "Rachatasumrit et al., 2022", "citeread"],
+        ["CiteSee", "Chang et al., 2023", "citesee"],
+        ["Qlarify", "Fok et al., 2023", "qlarify"],
+        ["Semantic Reader", "Lo et al., 2023", "semantic-reader"]
+      ]},
+      { secao: "4.7", titulo: "Ambientes ampliados", mudanca: "De telas 2D para ambientes imersivos e conversacionais", itens: [
+        ["ComLittee", "Kang et al., 2023", "comlittee"],
+        ["LitForager", "Yang et al., 2025", "litforager"],
+        ["vitaLITy 2", "An et al., 2024", "vitality-2"]
+      ]}
+    ],
+    [
+      { secao: "4.2", titulo: "Encadeamento e síntese", mudanca: "De artigos isolados para threads de pesquisa", itens: [
+        ["AbstractExplorer", "Gu et al., 2025", "abstractexplorer"],
+        ["CrossLit", "Choe et al., 2026", "crosslit"],
+        ["Garden of Papers", "Ma et al., 2025", "garden-of-papers"],
+        ["LitSense", "Sultanum; Murad; Wigdor, 2020", "litsense"],
+        ["Relatedly", "Palani et al., 2023", "relatedly"],
+        ["ScholarMate", "Ye et al., 2025", "scholarmate"],
+        ["SketchingRelatedWork", "Ma et al., 2023", "sketchingrelatedwork"],
+        ["Synergi", "Kang et al., 2023", "synergi"],
+        ["Threddy", "Kang et al., 2022", "threddy"]
+      ]}
+    ],
+    [
+      { secao: "4.5", titulo: "Scoping reviews e extração", mudanca: "Da recuperação para fluxos estruturados de revisão", itens: [
+        ["AIDME", "Soprano et al., 2025", "aidme"],
+        ["CRUISE-Screening", "Kusa; Knoth; Hanbury, 2023", "cruise-screening"],
+        ["DocFlow", "Qiu et al., 2022", "docflow"],
+        ["SciDaSynth", "X. Wang et al., 2024", "scidasynth"],
+        ["VICTORIOUS", "Haghighati et al., 2025", "victorious"]
+      ]}
+    ],
+    [
+      { secao: "4.4", titulo: "Ideação e crítica", mudanca: "Da descoberta para a formulação de hipóteses", itens: [
+        ["AutoSurveyGPT", "Xiao, 2023", "autosurveygpt"],
+        ["AwesomeLit", "Xie; Guo; Xu, 2026", "awesomelit"],
+        ["DiscipLink", "Zheng et al., 2024", "disciplink"],
+        ["IdeaSynth", "Pu et al., 2024", "ideasynth"],
+        ["IRIS", "Garikaparthi et al., 2025", "iris"],
+        ["LitPivot", "Kambhamettu et al., 2026", "litpivot"],
+        ["ResearchAgent", "Baek et al., 2025", "researchagent"],
+        ["ScholarEval", "Moussa et al., 2025", "scholareval"],
+        ["SciPIP", "W. Wang et al., 2024", "scipip"]
+      ]}
+    ]
+  ];
+
+  const base = [
+    { titulo: "Bases e ferramentas bibliométricas", cols: 5, itens: [
+      ["VOSviewer", "van Eck; Waltman, 2010", "vosviewer"],
+      ["Bibliometrix", "Aria; Cuccurullo, 2017", "bibliometrix"],
+      ["CiteSpace", "Chen, 2006", "citespace"],
+      ["Gephi", "Bastian et al., 2009", "gephi"],
+      ["Lens.org", "Penfold, 2020", "lens"],
+      ["SciVal", "Elsevier", "scival"],
+      ["Dimensions", "Thelwall, 2018", "dimensions"],
+      ["Scopus", "Elsevier", "scopus"],
+      ["Web of Science", "Clarivate", "web-of-science"],
+      ["OpenAlex", "Priem et al., 2022", "openalex"]
+    ]},
+    { titulo: "Infraestruturas abertas e toolkits (4.6)", cols: 4, itens: [
+      ["BibSonomy", "Völker et al., 2024", "bibsonomy"],
+      ["Ontoverse", "Zimmermann et al., 2024", "ontoverse"],
+      ["openalexR", "Aria et al., 2024", "openalexr"],
+      ["pyBiblioNet", "Lai et al., 2025", "pybiblionet"],
+      ["SciConNav", "Xiang et al., 2024", "sciconnav"],
+      ["ScholarNodes", "Noor et al., 2024", "scholarnodes"],
+      ["VisualBib", "Dattolo; Corbatto, 2019", "visualbib"]
+    ]},
+    { titulo: "Grandes modelos de linguagem", cols: 3, itens: [
+      ["GPT", "OpenAI", "gpt"],
+      ["Claude", "Anthropic", "claude"],
+      ["PaLM", "Google", "palm"],
+      ["LLaMA", "Meta", "llama"],
+      ["DeepSeek", "DeepSeek", "deepseek"],
+      ["Qwen", "Alibaba", "qwen"]
+    ]},
+    { titulo: "Plataformas de pesquisa com IA", cols: 4, itens: [
+      ["Scite.ai", "Scite", "scite"],
+      ["ResearchRabbit", "ResearchRabbit", "researchrabbit"],
+      ["Semantic Scholar", "Ai2", "semantic-scholar"],
+      ["Elicit", "Elicit", "elicit"],
+      ["Undermind", "Undermind", "undermind"],
+      ["R Discovery", "Researcher.Life", "r-discovery"],
+      ["Perplexity", "Perplexity", "perplexity"],
+      ["Consensus", "Consensus", "consensus"]
+    ]}
+  ];
+
+  /* ---------- Carregamento de imagens locais ---------- */
+  const EXTENSOES = ["png", "svg", "jpg", "jpeg", "webp"];
+
+  function carregarImagem(img, slug, alvo) {
+    let i = 0;
+    img.addEventListener("load", () => alvo.classList.add("com-imagem"));
+    img.addEventListener("error", () => {
+      i += 1;
+      if (i < EXTENSOES.length) img.src = `img/${slug}.${EXTENSOES[i]}`;
+    });
+    img.src = `img/${slug}.${EXTENSOES[0]}`;
+  }
+
+  const dialogo = document.getElementById("ampliacao");
+  function ampliar(img, nome, ref) {
+    if (!img.naturalWidth) return;
+    document.getElementById("ampliacao-img").src = img.src;
+    document.getElementById("ampliacao-img").alt = nome;
+    document.getElementById("ampliacao-nome").textContent = nome;
+    document.getElementById("ampliacao-ref").textContent = ref;
+    dialogo.showModal();
+  }
+  dialogo.addEventListener("click", () => dialogo.close());
+
+  function criarItem([nome, ref, slug]) {
+    const li = document.createElement("li");
+    const botao = document.createElement("button");
+    botao.className = "item";
+    botao.type = "button";
+    botao.innerHTML = `
+      <span class="miniatura"><img alt=""></span>
+      <span class="texto"><span class="nome"></span><span class="ref"></span></span>`;
+    botao.querySelector(".nome").textContent = nome;
+    botao.querySelector(".ref").textContent = ref;
+    botao.setAttribute("aria-label", `${nome}, ${ref}`);
+    const img = botao.querySelector("img");
+    carregarImagem(img, slug, botao);
+    botao.addEventListener("click", () => ampliar(img, nome, ref));
+    li.appendChild(botao);
+    return li;
+  }
+
+  /* ---------- Montagem das frentes ---------- */
+  const frentes = document.getElementById("frentes");
+  let totalPrototipos = 0;
+
+  colunas.forEach(grupos => {
+    const col = document.createElement("div");
+    col.className = "coluna";
+    grupos.forEach(g => {
+      const sec = document.createElement("section");
+      sec.className = "frente";
+      sec.innerHTML = `
+        <header>
+          <h2><span class="secao">${g.secao}</span>${g.titulo}</h2>
+          <p class="mudanca">${g.mudanca}</p>
+        </header>
+        <ul class="lista"></ul>`;
+      const ul = sec.querySelector(".lista");
+      g.itens.forEach(it => ul.appendChild(criarItem(it)));
+      totalPrototipos += g.itens.length;
+      col.appendChild(sec);
+    });
+    frentes.appendChild(col);
+  });
+
+  /* Coluna do Delinéia */
+  const colDelineia = document.createElement("div");
+  colDelineia.className = "coluna";
+  colDelineia.innerHTML = `
+    <section class="delineia" aria-label="Delinéia">
+      <h2>Delinéia</h2>
+      <button class="tela" type="button" aria-label="Interface do Delinéia"><img alt=""></button>
+      <p>Coocorrência de tópicos do OpenAlex e mediação por IA generativa numa trilha de autorregulação para delinear o escopo da pesquisa.</p>
+      <div class="correlato">
+        <p class="rotulo">Trabalho correlato do GTech.Edu</p>
+        <ul class="lista" id="lista-correlato"></ul>
+      </div>
+    </section>`;
+  frentes.appendChild(colDelineia);
+  const telaDelineia = colDelineia.querySelector(".tela");
+  const imgDelineia = telaDelineia.querySelector("img");
+  carregarImagem(imgDelineia, "delineia", telaDelineia);
+  telaDelineia.addEventListener("click", () => ampliar(imgDelineia, "Delinéia", "Santos, 2026"));
+  colDelineia.querySelector("#lista-correlato")
+    .appendChild(criarItem(["MTA", "Bastiani; Zarth; Reategui, 2024", "mta"]));
+
+  /* ---------- Montagem da base ---------- */
+  const secBase = document.getElementById("base");
+  let totalBase = 0;
+
+  base.forEach(g => {
+    const div = document.createElement("div");
+    div.className = `grupo cols-${g.cols}`;
+    div.innerHTML = `<h3>${g.titulo}</h3><ul class="grade"></ul>`;
+    const ul = div.querySelector(".grade");
+    g.itens.forEach(([nome, ref, slug]) => {
+      const li = document.createElement("li");
+      const ficha = document.createElement("button");
+      ficha.className = "ficha";
+      ficha.type = "button";
+      ficha.setAttribute("aria-label", `${nome}, ${ref}`);
+      ficha.innerHTML = `
+        <span class="logo"><img alt=""><span class="marca-texto"></span></span>
+        <span class="legenda"></span>`;
+      ficha.querySelector(".marca-texto").textContent = nome;
+      ficha.querySelector(".legenda").textContent = ref;
+      const img = ficha.querySelector("img");
+      img.alt = nome;
+      carregarImagem(img, slug, ficha);
+      ficha.addEventListener("click", () => ampliar(img, nome, ref));
+      li.appendChild(ficha);
+      ul.appendChild(li);
+    });
+    totalBase += g.itens.length;
+    secBase.appendChild(div);
+  });
+
+  document.getElementById("contagem").innerHTML =
+    `<strong>${totalPrototipos} sistemas</strong> em seis frentes de inovação, sobre uma base de <strong>${totalBase} ferramentas, modelos e infraestruturas</strong>`;
+
+  /* ---------- Ajuste do palco à janela ---------- */
+  const palco = document.getElementById("palco");
+  function ajustar() {
+    const w = window.innerWidth, h = window.innerHeight;
+    const s = Math.min(w / 1920, h / 1080);
+    palco.style.transform = `translate(${(w - 1920 * s) / 2}px, ${(h - 1080 * s) / 2}px) scale(${s})`;
+  }
+  window.addEventListener("resize", ajustar);
+  ajustar();
+</script>
+</body>
+</html>
