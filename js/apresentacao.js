@@ -13,6 +13,7 @@
 const SECOES = [
   "Introdução",
   "Referencial teórico",
+  "Estado da arte",
   "Metodologia",
   "Delinéia",
   "Resultados e discussão",
