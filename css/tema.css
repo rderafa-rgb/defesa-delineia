@@ -212,12 +212,14 @@
 
 /* ---------- 5. SLIDES ESPECÍFICOS ---------------------------------- */
 
-/* 5a. Abertura */
+/* 5a. Abertura: fundo tênue, derivado da tinta */
 .abertura .quadro { display: block; padding-top: 96px; }
 .abertura .instituicao {
-  font-size: 26px;
-  line-height: 1.45;
-  color: rgba(247, 247, 244, 0.72);
+  font-size: 21px;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--grafite);
 }
 .abertura .nome-sistema {
   font-family: var(--serifa);
@@ -225,15 +227,15 @@
   font-size: 168px;
   line-height: 1;
   letter-spacing: -0.012em;
-  margin: 170px 0 34px;
-  color: var(--papel);
+  margin: 72px 0 34px;
+  color: var(--tinta);
 }
 .abertura .subtitulo {
   font-family: var(--serifa);
   font-size: 40px;
   line-height: 1.32;
   max-width: 860px;
-  color: rgba(247, 247, 244, 0.9);
+  color: var(--tinta);
   margin: 0;
 }
 .abertura .autoria {
@@ -242,26 +244,39 @@
   bottom: 96px;
   font-size: 28px;
   line-height: 1.5;
-  color: rgba(247, 247, 244, 0.78);
+  color: var(--grafite);
 }
-.abertura .autoria strong { font-weight: 600; color: var(--papel); }
+.abertura .autoria strong { font-weight: 600; color: var(--tinta); }
+
+/* Logotipos institucionais, discretos, acima dos nomes */
+.abertura .logos {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  margin-bottom: 26px;
+}
+.abertura .logos img {
+  height: 72px;
+  width: auto;
+  opacity: 0.85;
+}
 
 .mapa-abertura {
   position: absolute;
   left: 1000px;
-  top: 90px;
+  top: 130px;
   width: 860px;
   height: 900px;
 }
-.mapa-abertura .aresta { stroke: rgba(247, 247, 244, 0.26); stroke-width: 2; }
-.mapa-abertura .no { fill: var(--noite); stroke: rgba(247, 247, 244, 0.7); stroke-width: 2.5; }
-.mapa-abertura .no.central { fill: var(--ouro-claro); stroke: var(--ouro-claro); }
+.mapa-abertura .aresta { stroke: rgba(28, 43, 69, 0.22); stroke-width: 2; }
+.mapa-abertura .no { fill: #E9EDF2; stroke: rgba(28, 43, 69, 0.6); stroke-width: 2.5; }
+.mapa-abertura .no.central { fill: var(--ouro); stroke: var(--ouro); }
 .mapa-abertura text {
   font-family: var(--sem-serifa);
   font-size: 24px;
-  fill: rgba(247, 247, 244, 0.62);
+  fill: var(--grafite);
 }
-.mapa-abertura text.central { fill: var(--ouro-claro); font-size: 28px; font-weight: 600; }
+.mapa-abertura text.central { fill: var(--ouro); font-size: 28px; font-weight: 600; }
 
 /* O único momento "orquestrado" da apresentação: as arestas se desenham
    quando a abertura entra em cena. */
@@ -292,7 +307,6 @@
   margin: 10px 0 4px;
 }
 .busca p { font-size: 28px; color: var(--grafite); margin: 0; }
-.busca.alvo .recuperado { fill: rgba(179, 137, 58, 0.14); }
 
 .chave-leitura {
   position: absolute;
@@ -820,3 +834,133 @@
 .bases .frase { font-size: 27px; line-height: 1.38; color: var(--tinta); margin: 0; }
 .bases .frase em { font-style: normal; color: var(--ouro); font-weight: 600; }
 .bases .ref-base { font-size: 21px; color: var(--grafite); margin: 12px 0 0; }
+
+/* ---------- 5m. Revisão sistemática de literatura ------------------ */
+.rsl .evidencia {
+  display: grid;
+  grid-template-columns: 1fr 520px;
+  column-gap: 90px;
+  padding-top: 48px;
+}
+
+/* Camadas em escala real */
+.rsl .camadas-titulo, .rsl .fluxo-titulo, .rsl .pontos-titulo {
+  font-size: 22px; color: var(--grafite); margin: 0 0 18px;
+}
+.rsl .camada { margin-bottom: 22px; }
+.rsl .camada-rotulo { font-size: 24px; color: var(--tinta); margin-bottom: 8px; }
+.rsl .camada-rotulo span { color: var(--grafite); }
+.rsl .camada-linha { display: flex; align-items: center; gap: 18px; }
+.rsl .barra-rsl {
+  height: 30px;
+  background: var(--tinta);
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 900ms cubic-bezier(.2,.7,.2,1);
+}
+.rsl .camada:nth-child(3) .barra-rsl { background: #8E98A6; }
+.rsl .camada:nth-child(4) .barra-rsl { background: var(--ouro); min-width: 4px; }
+.rsl .camadas.visible .barra-rsl { transform: scaleX(1); }
+.rsl .camadas.visible .camada:nth-child(3) .barra-rsl { transition-delay: 200ms; }
+.rsl .camadas.visible .camada:nth-child(4) .barra-rsl { transition-delay: 400ms; }
+.rsl .camada-valor { font-family: var(--serifa); font-size: 32px; font-weight: 600; color: var(--tinta); white-space: nowrap; }
+.rsl .proporcao { color: var(--ouro); margin-left: 10px; }
+
+/* Os 13 estudos */
+.rsl .pontos { margin-top: 36px; padding-top: 26px; border-top: 1px solid var(--nevoa); }
+.rsl .fila { display: flex; gap: 14px; margin-bottom: 18px; }
+.rsl .fila span { width: 30px; height: 30px; border-radius: 50%; border: 3px solid #B7BFCA; box-sizing: border-box; }
+.rsl .fila span.central { background: var(--ouro); border-color: var(--ouro); }
+.rsl .pontos p { font-size: 24px; line-height: 1.4; color: var(--tinta); margin: 0; }
+.rsl .pontos p strong { font-weight: 600; }
+.rsl .pontos .ouro { color: var(--ouro); font-weight: 600; }
+
+/* Fluxo PRISMA resumido */
+.rsl .fluxo { display: grid; grid-template-columns: 1fr 150px; column-gap: 30px; align-items: start; }
+.rsl .etapa { border-left: 4px solid var(--nevoa); padding: 4px 0 4px 18px; margin-bottom: 8px; }
+.rsl .etapa .n { font-family: var(--serifa); font-size: 40px; font-weight: 600; color: var(--tinta); line-height: 1.1; }
+.rsl .etapa .d { font-size: 21px; color: var(--grafite); }
+.rsl .etapa.final { border-left-color: var(--ouro); }
+.rsl .etapa.final .n { color: var(--ouro); }
+.rsl .corte { font-size: 19px; color: #9A5A4A; margin: 0 0 8px 22px; }
+.rsl .miniatura-rsl { width: 150px; }
+.rsl .miniatura-rsl img {
+  width: 150px; height: 196px; object-fit: cover; object-position: top;
+  border: 1px solid var(--nevoa); display: block; cursor: zoom-in; background: #fff;
+}
+.rsl .miniatura-rsl p { font-size: 17px; color: var(--grafite); margin: 8px 0 0; line-height: 1.3; }
+
+/* ---------- 5n. Sumário -------------------------------------------- */
+.sumario .quadro { display: block; padding-top: 72px; }
+.sumario .rotulo {
+  font-family: var(--serifa);
+  font-weight: 600;
+  font-size: 58px;
+  line-height: 1.1;
+  color: var(--tinta);
+  margin-bottom: 44px;
+}
+.sumario .corpo { display: grid; grid-template-columns: 760px 1fr; column-gap: 90px; }
+
+/* A lista é sempre visível. Os estados acompanham a trilha do rodapé:
+   à frente em cinza, a atual em dourado, as já percorridas em grafite. */
+.sumario ol { list-style: none; margin: 0; padding: 0; }
+.reveal .slides section .sumario-item.fragment {
+  opacity: 1;
+  visibility: inherit;
+}
+.sumario-item {
+  display: grid;
+  grid-template-columns: 58px 60px 1fr;
+  align-items: center;
+  column-gap: 20px;
+  height: 78px;
+  border-bottom: 1px solid rgba(213, 218, 225, .7);
+}
+.sumario-item .traco {
+  height: 5px;
+  width: 44px;
+  background: var(--nevoa);
+  transition: width 420ms ease, background 420ms ease;
+}
+.sumario-item .num { font-size: 22px; color: var(--grafite); }
+.sumario-item .nome {
+  font-family: var(--serifa);
+  font-weight: 600;
+  font-size: 32px;
+  color: #9AA3B0;
+  transition: color 420ms ease;
+}
+.sumario-item.visible .traco { background: #9AA3B0; }
+.sumario-item.visible .nome { color: var(--grafite); }
+.sumario-item.current-fragment .traco { background: var(--ouro); width: 58px; }
+.sumario-item.current-fragment .nome { color: var(--tinta); }
+.sumario-item.current-fragment .num { color: var(--ouro); }
+
+/* Painel de detalhes: todos no mesmo lugar, um de cada vez */
+.sumario .painel { position: relative; }
+.sumario .detalhe {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  border-left: 5px solid var(--ouro);
+  padding: 8px 0 8px 40px;
+}
+.sumario .detalhe.abertura-sumario { border-left-color: var(--nevoa); }
+.sumario .detalhe h3 {
+  font-family: var(--serifa);
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.15;
+  color: var(--tinta);
+  margin: 0 0 26px;
+}
+.sumario .detalhe ul { list-style: none; margin: 0; padding: 0; }
+.sumario .detalhe li {
+  font-size: 29px;
+  line-height: 1.35;
+  color: var(--tinta);
+  padding: 14px 0;
+  border-top: 1px solid rgba(213, 218, 225, .7);
+}
+.sumario .detalhe li:first-child { border-top: none; padding-top: 0; }
+.sumario .detalhe p { font-size: 29px; line-height: 1.45; color: var(--grafite); margin: 0; }

@@ -48,11 +48,19 @@
 <!-- =====================================================================
      SLIDE 1 · ABERTURA
      ===================================================================== -->
-<section class="abertura escuro" data-background-color="#13203A" data-rodape="nao">
+<section class="abertura" data-background-color="#E9EDF2" data-rodape="nao">
   <div class="quadro">
+
+    <!-- Logotipos acima das instituições: arquivos em midia/logos/ -->
+    <div class="logos">
+      <img src="midia/logos/ufrgs.png" alt="UFRGS" style="height: 88px" onerror="this.style.display='none'">
+      <img src="midia/logos/cinted.png" alt="CINTED" style="height: 70px" onerror="this.style.display='none'">
+      <img src="midia/logos/ppgie.png" alt="PPGIE" style="height: 74px" onerror="this.style.display='none'">
+    </div>
 
     <div class="instituicao">
       Universidade Federal do Rio Grande do Sul<br>
+      Centro Interdisciplinar de Novas Tecnologias na Educação<br>
       Programa de Pós-Graduação em Informática na Educação
     </div>
 
@@ -116,6 +124,116 @@
   </aside>
 </section>
 
+<!-- =====================================================================
+     SLIDE 2 · SUMÁRIO
+     A lista acompanha a trilha do rodapé. A cada clique, uma seção acende
+     em dourado e o seu detalhamento aparece à direita, sumindo no clique
+     seguinte. Oito cliques no total.
+     ===================================================================== -->
+<section class="sumario" data-secao="Sumário">
+  <div class="quadro">
+
+    <div class="rotulo">Sumário</div>
+
+    <div class="corpo">
+      <ol>
+        <li class="sumario-item fragment" data-fragment-index="1"><span class="traco"></span><span class="num">01</span><span class="nome">Introdução</span></li>
+        <li class="sumario-item fragment" data-fragment-index="2"><span class="traco"></span><span class="num">02</span><span class="nome">Revisão de literatura</span></li>
+        <li class="sumario-item fragment" data-fragment-index="3"><span class="traco"></span><span class="num">03</span><span class="nome">Revisão sistemática de literatura</span></li>
+        <li class="sumario-item fragment" data-fragment-index="4"><span class="traco"></span><span class="num">04</span><span class="nome">Estado da arte</span></li>
+        <li class="sumario-item fragment" data-fragment-index="5"><span class="traco"></span><span class="num">05</span><span class="nome">Metodologia</span></li>
+        <li class="sumario-item fragment" data-fragment-index="6"><span class="traco"></span><span class="num">06</span><span class="nome">Delinéia</span></li>
+        <li class="sumario-item fragment" data-fragment-index="7"><span class="traco"></span><span class="num">07</span><span class="nome">Resultados e discussão</span></li>
+        <li class="sumario-item fragment" data-fragment-index="8"><span class="traco"></span><span class="num">08</span><span class="nome">Considerações finais</span></li>
+      </ol>
+
+      <div class="painel">
+        <div class="detalhe abertura-sumario fragment fade-out" data-fragment-index="1">
+          <p>O percurso segue a estrutura da tese, da pergunta que motivou a pesquisa até as respostas que ela alcançou.</p>
+        </div>
+        <div class="detalhe fragment fade-in-then-out" data-fragment-index="1">
+          <h3>Introdução</h3>
+          <ul>
+            <li>Tema, contexto e justificativa</li>
+            <li>Questão de pesquisa e objetivos</li>
+            <li>Definição operacional de termos</li>
+            <li>Plano de trabalho</li>
+          </ul>
+        </div>
+
+        <div class="detalhe fragment fade-in-then-out" data-fragment-index="2">
+          <h3>Revisão de literatura</h3>
+          <ul>
+            <li>Formação em pesquisa e delineamento do escopo</li>
+            <li>Escrita, comportamento informacional, busca exploratória e autoeficácia</li>
+            <li>LLMs, interação humano-IA, coocorrência e aceitação de tecnologia</li>
+          </ul>
+        </div>
+
+        <div class="detalhe fragment fade-in-then-out" data-fragment-index="3">
+          <h3>Revisão sistemática de literatura</h3>
+          <ul>
+            <li>Busca em camadas comparativas</li>
+            <li>Seleção segundo o PRISMA 2020</li>
+            <li>A lacuna no ensino da análise de coocorrência</li>
+          </ul>
+        </div>
+
+        <div class="detalhe fragment fade-in-then-out" data-fragment-index="4">
+          <h3>Estado da arte</h3>
+          <ul>
+            <li>Sistemas de exploração, síntese e desenho de pesquisa</li>
+            <li>Ferramentas, modelos e plataformas de base</li>
+          </ul>
+        </div>
+
+        <div class="detalhe fragment fade-in-then-out" data-fragment-index="5">
+          <h3>Metodologia</h3>
+          <ul>
+            <li>Design Science Research</li>
+            <li>Estudos preliminares</li>
+            <li>Arquitetura do Delinéia</li>
+            <li>Estudo final e avaliação</li>
+          </ul>
+        </div>
+
+        <div class="detalhe fragment fade-in-then-out" data-fragment-index="6">
+          <h3>Delinéia</h3>
+          <ul>
+            <li>A trilha de aprendizagem</li>
+            <li>O relatório de delineamento</li>
+            <li>Demonstração com um projeto fictício</li>
+          </ul>
+        </div>
+
+        <div class="detalhe fragment fade-in-then-out" data-fragment-index="7">
+          <h3>Resultados e discussão</h3>
+          <ul>
+            <li>Perfil acadêmico e comportamento informacional da amostra</li>
+            <li>Evolução da autoeficácia informacional</li>
+            <li>Usabilidade, utilidade e análise qualitativa</li>
+            <li>Comparação entre Scopus e OpenAlex</li>
+          </ul>
+        </div>
+
+        <div class="detalhe fragment fade-in-then-out" data-fragment-index="8">
+          <h3>Considerações finais</h3>
+          <ul>
+            <li>Resposta à questão de pesquisa</li>
+            <li>Contribuição da tese</li>
+            <li>Limitações e pesquisas futuras</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <aside class="notes">
+    [1:00] Um clique por seção, sem ler os detalhes, só nomeando o percurso.
+    O rodapé de cada slide repete esta trilha, com a seção atual em dourado.
+  </aside>
+</section>
 
 <!-- =====================================================================
      SLIDE 2 · TEMA
@@ -884,6 +1002,91 @@
     Clique 3. A coocorrência dá ao estudante o mapa do campo.
     Clique 4. TAM3 e UTAUT fundamentam o instrumento do estudo final. Destacar
     que a autoeficácia volta aqui, como antecedente da facilidade de uso.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     SLIDE 13 · REVISÃO SISTEMÁTICA DE LITERATURA
+     Clique 1: as três camadas em escala real.
+     Clique 2: o fluxo PRISMA resumido, com a Figura 6 ampliável.
+     Clique 3: os 13 estudos e a caracterização como revisão vazia.
+     ===================================================================== -->
+<section class="rsl" data-secao="Revisão sistemática de literatura">
+  <div class="quadro">
+
+    <h2 class="afirmacao">Para cada 280 estudos que usam a análise de coocorrência, apenas um trata do seu ensino</h2>
+
+    <div class="evidencia">
+
+      <div>
+        <div class="camadas fragment" data-fragment-index="1">
+          <p class="camadas-titulo">Registros recuperados na Web of Science e na Scopus, em escala real</p>
+          <div class="camada">
+            <div class="camada-rotulo">Camada 1 <span>· a técnica como método</span></div>
+            <div class="camada-linha"><div class="barra-rsl" style="width: 880px"></div><span class="camada-valor">132.378</span></div>
+          </div>
+          <div class="camada">
+            <div class="camada-rotulo">Camada 2 <span>· educação como objeto</span></div>
+            <div class="camada-linha"><div class="barra-rsl" style="width: 283px"></div><span class="camada-valor">42.621</span></div>
+          </div>
+          <div class="camada">
+            <div class="camada-rotulo">Camada 3 <span>· educação como prática</span></div>
+            <div class="camada-linha"><div class="barra-rsl" style="width: 3px"></div><span class="camada-valor">466 <span class="proporcao">≈ 280 : 1</span></span></div>
+          </div>
+        </div>
+
+        <div class="pontos fragment" data-fragment-index="3">
+          <p class="pontos-titulo">Os 13 estudos incluídos</p>
+          <div class="fila">
+            <span class="central"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <p><span class="ouro">Um único estudo</span> põe a coocorrência no centro da formação. Nos outros doze, ela está ausente ou é apenas mencionada. <strong>Uma revisão vazia</strong> (<em>empty review</em>).</p>
+        </div>
+      </div>
+
+      <div class="fragment" data-fragment-index="2">
+        <p class="fluxo-titulo">Seleção segundo o PRISMA 2020</p>
+        <div class="fluxo">
+          <div>
+            <div class="etapa"><div class="n">466</div><div class="d">registros identificados</div></div>
+            <p class="corte">− 142 duplicatas</p>
+            <div class="etapa"><div class="n">324</div><div class="d">triados por título e resumo</div></div>
+            <p class="corte">− 310 fora dos critérios</p>
+            <div class="etapa"><div class="n">14</div><div class="d">lidos na íntegra</div></div>
+            <p class="corte">− 1 editorial</p>
+            <div class="etapa final"><div class="n">13</div><div class="d">incluídos, de 1981 a 2025</div></div>
+          </div>
+          <div class="miniatura-rsl">
+            <img class="ampliavel" src="midia/rsl/fluxo-rsl.png" alt="Fluxo de seleção da RSL"
+                 data-nome="Fluxo de seleção da RSL" data-ref="Figura 6 · Dados da pesquisa">
+            <p>Figura 6, clique para ampliar</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="marcadores">
+      <span class="marcador fragment" data-fragment-index="1"><svg><use href="#icone-coocorrencia"></use></svg>coocorrência</span>
+    </div>
+
+    <div class="referencias">
+      <span class="ref fragment fade-in-then-out" data-fragment-index="1">Busca em camadas inspirada em Wilson, 2024</span>
+      <span class="ref fragment fade-in-then-out" data-fragment-index="2">Page et al., 2021</span>
+      <span class="ref fragment fade-in-then-out" data-fragment-index="3">Nejma; Cherkaoui, 2020</span>
+    </div>
+
+  </div>
+
+  <aside class="notes">
+    [1:30] Ler a afirmação e já fazer a ressalva: 280 para 1 é uma estimativa
+    indicativa, calculada sobre totais brutos, sem remover duplicatas entre bases.
+    Clique 1. As camadas em escala real. A barra da camada 3 é quase invisível,
+    e é exatamente essa a lacuna.
+    Clique 2. O funil PRISMA. Busca 5, ensino de bibliometria, e busca 6,
+    inversão semântica. Todos os 14 lidos na íntegra vieram da busca 5.
+    Clique 3. Um único estudo, Nejma e Cherkaoui, põe a técnica no centro,
+    ainda com limitações metodológicas. Por isso, uma revisão vazia.
   </aside>
 </section>
 
