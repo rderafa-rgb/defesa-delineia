@@ -551,3 +551,272 @@
   color: var(--grafite);
   text-align: right;
 }
+
+/* ---------- 5h. Plano de trabalho ---------------------------------- */
+.plano .quadro { display: block; padding-top: 72px; }
+.plano .rotulo {
+  font-family: var(--serifa);
+  font-weight: 600;
+  font-size: 58px;
+  line-height: 1.1;
+  color: var(--tinta);
+  margin-bottom: 10px;
+}
+.plano .subtitulo-plano { font-size: 26px; color: var(--grafite); margin: 0 0 26px; }
+
+.plano .diagrama { position: relative; height: 700px; margin-top: 34px; }
+.plano .trilho {
+  position: absolute;
+  top: 350px;
+  left: 0; right: 40px;
+  height: 3px;
+  background: var(--nevoa);
+}
+.plano .ponta {
+  position: absolute;
+  top: 338px;
+  right: 0;
+  width: 26px;
+  height: 26px;
+}
+
+.plano .parada { position: absolute; width: 340px; }
+.plano .parada.acima {
+  top: 0;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.plano .parada.abaixo { top: 353px; height: 347px; }
+
+.plano .trecho {
+  position: absolute;
+  top: 350px;
+  right: 50%;
+  height: 3px;
+  background: var(--ouro);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 620ms cubic-bezier(.2,.7,.2,1);
+}
+.plano .parada.abaixo .trecho { top: -3px; }
+.plano .parada.visible .trecho { transform: scaleX(1); }
+
+.plano .ponto {
+  position: absolute;
+  top: 342px;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  margin-left: -9px;
+  border-radius: 50%;
+  background: var(--ouro);
+}
+.plano .parada.abaixo .ponto { top: -11px; }
+
+.plano .icone { width: 76px; height: 76px; display: block; margin: 0 auto 26px; }
+.plano .parada.abaixo .icone { margin: 34px auto 20px; }
+.plano .parada h3 {
+  font-family: var(--serifa);
+  font-weight: 600;
+  font-size: 31px;
+  line-height: 1.15;
+  color: var(--tinta);
+  margin: 0 0 12px;
+  text-align: center;
+}
+.plano .parada p {
+  font-size: 24px;
+  line-height: 1.32;
+  color: var(--grafite);
+  margin: 0;
+  text-align: center;
+}
+.plano .numero {
+  display: block;
+  font-size: 22px;
+  color: var(--ouro);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+/* ---------- 5i. Definição operacional de termos -------------------- */
+.termos .quadro { display: block; padding-top: 72px; }
+.termos .rotulo {
+  font-family: var(--serifa);
+  font-weight: 600;
+  font-size: 58px;
+  line-height: 1.1;
+  color: var(--tinta);
+  margin-bottom: 10px;
+}
+.termos .subtitulo-termos { font-size: 26px; color: var(--grafite); margin: 0; max-width: 1400px; }
+.termos .nuvem { display: block; width: 1680px; height: 700px; margin-top: 20px; }
+.termos .nuvem text {
+  font-family: var(--serifa);
+  font-weight: 600;
+  fill: var(--tinta);
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--papel);
+  stroke-width: 14px;
+  stroke-linejoin: round;
+}
+.termos .nuvem text.destaque { fill: var(--ouro); }
+.termos .nuvem text.grupo {
+  font-family: var(--sem-serifa);
+  font-weight: 400;
+  font-size: 23px;
+  fill: var(--grafite);
+  stroke-width: 0;
+}
+.termos .nuvem line { stroke: var(--nevoa); stroke-width: 2.4; }
+.termos .nuvem line.ponte { stroke-dasharray: 6 7; }
+
+
+/* ---------- 5j. Abertura da revisão de literatura ------------------ */
+.abertura-capitulo .quadro { display: block; padding-top: 150px; }
+.abertura-capitulo .rotulo {
+  font-family: var(--serifa);
+  font-weight: 600;
+  font-size: 58px;
+  line-height: 1.1;
+  color: var(--tinta);
+  margin: 0 0 56px;
+}
+.abertura-capitulo blockquote {
+  margin: 0;
+  max-width: 860px;
+  padding-left: 36px;
+  border-left: 5px solid var(--ouro);
+  font-family: var(--serifa);
+  font-size: 40px;
+  line-height: 1.36;
+  color: var(--tinta);
+}
+.abertura-capitulo .fonte-citacao { margin: 22px 0 0 41px; font-size: 22px; color: var(--grafite); }
+
+.abertura-capitulo .orbita {
+  position: absolute;
+  left: 1080px;
+  top: 150px;
+  width: 760px;
+  height: 760px;
+}
+.abertura-capitulo .orbita .anel { fill: none; stroke: var(--nevoa); stroke-width: 2; stroke-dasharray: 5 8; }
+.abertura-capitulo .orbita .raio { stroke: var(--nevoa); stroke-width: 2.4; }
+.abertura-capitulo .orbita .no { fill: var(--papel); stroke: var(--tinta); stroke-width: 2.6; }
+.abertura-capitulo .orbita .no.externo { stroke: var(--grafite); }
+.abertura-capitulo .orbita .centro { fill: var(--ouro); }
+.abertura-capitulo .orbita text {
+  font-family: var(--sem-serifa);
+  font-size: 23px;
+  fill: var(--tinta);
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--papel);
+  stroke-width: 10px;
+  stroke-linejoin: round;
+}
+.abertura-capitulo .orbita text.externo { fill: var(--grafite); font-size: 21px; }
+.abertura-capitulo .orbita text.nucleo {
+  font-family: var(--serifa);
+  font-weight: 600;
+  font-size: 27px;
+  fill: var(--tinta);
+}
+
+/* ---------- 5k. Modelos teóricos (R2) ------------------------------ */
+.modelos .colunas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 44px;
+  padding-top: 54px;
+}
+.modelos .miniaturas {
+  height: 280px;
+  border: 1px solid var(--nevoa);
+  background: #fff;
+  overflow: hidden;
+}
+.modelos .miniaturas.duas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--nevoa);
+}
+.modelos img.ampliavel {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  box-sizing: border-box;
+  padding: 12px;
+  background: #fff;
+  display: block;
+  cursor: zoom-in;
+}
+.modelos .cartao {
+  height: 280px;
+  box-sizing: border-box;
+  background: var(--noite);
+  border-top: 5px solid var(--ouro-claro);
+  padding: 32px 30px;
+  font-family: var(--serifa);
+  font-size: 29px;
+  line-height: 1.36;
+  color: var(--papel);
+}
+.modelos h3 {
+  font-family: var(--serifa);
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1.15;
+  color: var(--tinta);
+  margin: 26px 0 6px;
+  min-height: 74px;
+  display: flex;
+  align-items: flex-end;
+}
+.modelos .ref-modelo { font-size: 21px; color: var(--grafite); margin: 0; }
+.modelos .contato {
+  font-size: 26px;
+  line-height: 1.36;
+  color: var(--tinta);
+  margin: 18px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--nevoa);
+}
+
+/* ---------- 5l. Bases tecnológicas (R3) ---------------------------- */
+.bases .quadrantes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "llm       interacao"
+    "aceitacao coocorrencia";
+  column-gap: 80px;
+  row-gap: 44px;
+  padding-top: 50px;
+}
+.bases .base-item {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  column-gap: 28px;
+  padding-top: 26px;
+  border-top: 1px solid var(--nevoa);
+}
+.bases .base-item svg { width: 72px; height: 72px; }
+.bases .secao-num { font-size: 22px; color: var(--ouro); margin: 0 0 4px; }
+.bases h3 {
+  font-family: var(--serifa);
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 1.15;
+  color: var(--tinta);
+  margin: 0 0 12px;
+}
+.bases .frase { font-size: 27px; line-height: 1.38; color: var(--tinta); margin: 0; }
+.bases .frase em { font-style: normal; color: var(--ouro); font-weight: 600; }
+.bases .ref-base { font-size: 21px; color: var(--grafite); margin: 12px 0 0; }

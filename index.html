@@ -532,6 +532,360 @@
     apresentação, do artefato ao estudo final.
   </aside>
 </section>
+<!-- =====================================================================
+     SLIDE 8 · DEFINIÇÃO OPERACIONAL DE TERMOS
+     Os nove termos da seção 1.3, nos três grupos da tese, ligados pelas
+     relações descritas na síntese 1.3.4. Um grupo por clique.
+     ===================================================================== -->
+<section class="termos" data-secao="Introdução">
+  <div class="quadro">
+
+    <div class="rotulo">Definição operacional de termos</div>
+    <p class="subtitulo-termos">Nove termos, da macroestrutura à unidade de análise, contextualizados na ontologia do OpenAlex</p>
+
+    <svg class="nuvem" viewBox="0 0 1680 700" aria-label="Nove termos em três grupos">
+
+      <!-- Grupo 1 · níveis macroscópicos -->
+      <g class="fragment" data-fragment-index="1">
+        <line x1="250" y1="148" x2="150" y2="314"/>
+        <line x1="150" y1="314" x2="330" y2="431"/>
+        <text x="250" y="170" font-size="66">domínio</text>
+        <text x="150" y="330" font-size="48">campo</text>
+        <text x="330" y="445" font-size="42">subcampo</text>
+        <text class="grupo" x="250" y="640">níveis macroscópicos</text>
+      </g>
+
+      <!-- Grupo 2 · unidades de significado e representação -->
+      <g class="fragment" data-fragment-index="2">
+        <line x1="780" y1="135" x2="700" y2="315"/>
+        <line x1="700" y1="315" x2="1040" y2="195"/>
+        <line x1="700" y1="315" x2="840" y2="480"/>
+        <text x="780" y="152" font-size="52">conceito</text>
+        <text x="700" y="330" font-size="46">termo</text>
+        <text x="1040" y="210" font-size="44">descritor</text>
+        <text class="destaque" x="840" y="505" font-size="74">palavra-chave</text>
+        <text class="grupo" x="840" y="640">unidades de significado e representação</text>
+      </g>
+
+      <!-- Grupo 3 · estruturação e classificação, com as pontes entre grupos -->
+      <g class="fragment" data-fragment-index="3">
+        <line class="ponte" x1="330" y1="431" x2="1400" y2="325"/>
+        <line class="ponte" x1="1040" y1="195" x2="1400" y2="325"/>
+        <line class="ponte" x1="840" y1="480" x2="1400" y2="325"/>
+        <line x1="1400" y1="325" x2="1450" y2="503"/>
+        <text x="1400" y="345" font-size="60">tópico</text>
+        <text x="1450" y="520" font-size="50">categoria</text>
+        <text class="grupo" x="1430" y="640">estruturação e classificação</text>
+      </g>
+
+    </svg>
+
+    <div class="referencias">
+      <span class="ref">ISO 25964, 2011; 2013; ISO 5127, 2017</span>
+    </div>
+
+  </div>
+
+  <aside class="notes">
+    [0:40] Nove termos organizados do nível macroestrutural à unidade de análise.
+    Clique 1. Domínio, campo e subcampo delimitam o cenário disciplinar.
+    Clique 2. A busca parte de um conceito, expresso por um termo. Curado, ele
+    vira descritor. Atribuído livremente pelo autor, vira palavra-chave, a
+    unidade material da análise de coocorrência.
+    Clique 3. Tópicos organizam e a categoria é o destino da classificação.
+    No OpenAlex, o tópico funciona como descritor. Essa distinção volta no
+    objetivo d, que compara palavras-chave de autor com conceitos hierárquicos.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     SLIDE 9 · PLANO DE TRABALHO
+     Quatro fases, uma por clique. A linha dourada avança junto.
+     ===================================================================== -->
+<section class="plano" data-secao="Introdução">
+  <div class="quadro">
+
+    <div class="rotulo">Plano de trabalho</div>
+    <p class="subtitulo-plano">A pesquisa foi dividida em quatro fases</p>
+
+    <div class="diagrama">
+      <span class="trilho"></span>
+      <svg class="ponta" viewBox="0 0 26 26" aria-hidden="true"><path d="M2 4l11 9-11 9" fill="none" stroke="#D5DAE1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+      <div class="parada acima fragment" data-fragment-index="1" style="left: 40px">
+        <span class="trecho" style="width: 210px"></span>
+        <span class="ponto"></span>
+        <span class="numero">01</span>
+        <h3>Levantamento teórico e mapeamento funcional</h3>
+        <p>Revisão de modelos teóricos e planejamento de funcionalidades da ferramenta</p>
+        <svg class="icone" viewBox="0 0 64 64" aria-hidden="true"><rect x="14" y="6" width="36" height="52" rx="2" fill="none" stroke="#1C2B45" stroke-width="2.6"/><line x1="22" y1="20" x2="42" y2="20" stroke="#1C2B45" stroke-width="2.4"/><line x1="22" y1="30" x2="42" y2="30" stroke="#1C2B45" stroke-width="2.4"/><line x1="22" y1="40" x2="34" y2="40" stroke="#B3893A" stroke-width="2.8"/></svg>
+      </div>
+
+      <div class="parada abaixo fragment" data-fragment-index="2" style="left: 460px">
+        <span class="trecho" style="width: 420px"></span>
+        <span class="ponto"></span>
+        <svg class="icone" viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="12" width="48" height="40" rx="2" fill="none" stroke="#1C2B45" stroke-width="2.6"/><line x1="8" y1="23" x2="56" y2="23" stroke="#1C2B45" stroke-width="2.4"/><circle cx="32" cy="38" r="8" fill="none" stroke="#1C2B45" stroke-width="2.4"/><circle cx="32" cy="38" r="3" fill="#B3893A"/><path d="M32 26v-3M32 53v-3M20 38h-3M47 38h-3" stroke="#1C2B45" stroke-width="2.4" stroke-linecap="round"/></svg>
+        <span class="numero">02</span>
+        <h3>Desenvolvimento da ferramenta</h3>
+        <p>Construção de uma ferramenta que integra visualização e feedback de IA</p>
+      </div>
+
+      <div class="parada acima fragment" data-fragment-index="3" style="left: 880px">
+        <span class="trecho" style="width: 420px"></span>
+        <span class="ponto"></span>
+        <span class="numero">03</span>
+        <h3>Aplicação educacional</h3>
+        <p>Teste da ferramenta com estudantes em ambientes educacionais</p>
+        <svg class="icone" viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="10" width="34" height="26" rx="2" fill="none" stroke="#1C2B45" stroke-width="2.6"/><path d="M16 29l6-11 6 11M19 24h6" fill="none" stroke="#B3893A" stroke-width="2.4"/><circle cx="42" cy="40" r="7" fill="none" stroke="#1C2B45" stroke-width="2.6"/><path d="M30 58c0-8 5.5-12 12-12s12 4 12 12" fill="none" stroke="#1C2B45" stroke-width="2.6"/></svg>
+      </div>
+
+      <div class="parada abaixo fragment" data-fragment-index="4" style="left: 1300px">
+        <span class="trecho" style="width: 420px"></span>
+        <span class="ponto"></span>
+        <svg class="icone" viewBox="0 0 64 64" aria-hidden="true"><path d="M10 54h44" stroke="#1C2B45" stroke-width="2.6" stroke-linecap="round"/><rect x="16" y="34" width="9" height="20" fill="none" stroke="#1C2B45" stroke-width="2.4"/><rect x="30" y="26" width="9" height="28" fill="none" stroke="#1C2B45" stroke-width="2.4"/><rect x="44" y="18" width="9" height="36" fill="none" stroke="#1C2B45" stroke-width="2.4"/><path d="M14 26l12-8 10 6 14-12" fill="none" stroke="#B3893A" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="numero">04</span>
+        <h3>Análise de dados</h3>
+        <p>Avaliação do impacto da ferramenta usando dados coletados</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <aside class="notes">
+    [0:50] Quatro fases, apresentadas em quatro cliques.
+    Clique 1. Levantamento teórico e mapeamento funcional da literatura.
+    Clique 2. Desenvolvimento e implementação do modelo da ferramenta.
+    Clique 3. Aplicação com estudantes do ensino superior, usando a própria
+    ferramenta como instrumento de coleta.
+    Clique 4. Análise dos dados obtidos. Emendar na definição de termos.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     SLIDE 10 · REVISÃO DE LITERATURA · ABERTURA (R1)
+     A frase da seção 2.7 e um mapa do capítulo: os modelos teóricos em
+     volta da formação em pesquisa (clique 1) e as bases tecnológicas na
+     órbita externa (clique 2).
+     ===================================================================== -->
+<section class="abertura-capitulo" data-secao="Revisão de literatura">
+  <div class="quadro">
+
+    <div class="rotulo">Revisão de literatura</div>
+
+    <blockquote>A formulação de um escopo rigoroso requer andaimes instrucionais capazes de estruturar a tolerância à ambiguidade, a tomada de decisão e a autonomia investigativa do pesquisador iniciante.</blockquote>
+    <p class="fonte-citacao">Considerações sobre o capítulo, seção 2.7</p>
+
+    <svg class="orbita" viewBox="0 0 760 760" aria-label="Mapa do capítulo">
+
+      <!-- Órbita externa: bases tecnológicas (clique 2) -->
+      <g class="fragment" data-fragment-index="2">
+        <circle class="anel" cx="380" cy="380" r="300"/>
+        <circle class="no externo" cx="168" cy="168" r="9"/>
+        <circle class="no externo" cx="592" cy="168" r="9"/>
+        <circle class="no externo" cx="592" cy="592" r="9"/>
+        <circle class="no externo" cx="168" cy="592" r="9"/>
+        <text class="externo" x="168" y="128">LLMs para extração</text>
+        <text class="externo" x="592" y="128">interação humano-IA</text>
+        <text class="externo" x="592" y="638">coocorrência de palavras</text>
+        <text class="externo" x="168" y="638">aceitação e uso</text>
+      </g>
+
+      <!-- Modelos teóricos em volta do núcleo (clique 1) -->
+      <g class="fragment" data-fragment-index="1">
+        <line class="raio" x1="380" y1="380" x2="380" y2="210"/>
+        <line class="raio" x1="380" y1="380" x2="550" y2="380"/>
+        <line class="raio" x1="380" y1="380" x2="380" y2="550"/>
+        <line class="raio" x1="380" y1="380" x2="210" y2="380"/>
+        <circle class="no" cx="380" cy="210" r="11"/>
+        <circle class="no" cx="550" cy="380" r="11"/>
+        <circle class="no" cx="380" cy="550" r="11"/>
+        <circle class="no" cx="210" cy="380" r="11"/>
+        <text x="380" y="180">escrita</text>
+        <text x="550" y="322">comportamento</text>
+        <text x="550" y="350">informacional</text>
+        <text x="380" y="592">busca exploratória</text>
+        <text x="210" y="350">autoeficácia</text>
+      </g>
+
+      <!-- Núcleo, visível ao entrar -->
+      <circle class="centro" cx="380" cy="380" r="22"/>
+      <text class="nucleo" x="380" y="440">formação em pesquisa</text>
+
+    </svg>
+
+    <div class="marcadores">
+      <span class="marcador fragment" data-fragment-index="2"><svg><use href="#icone-coocorrencia"></use></svg>coocorrência</span>
+      <span class="marcador fragment" data-fragment-index="2"><svg><use href="#icone-llm"></use></svg>LLM</span>
+    </div>
+
+  </div>
+
+  <aside class="notes">
+    [0:45] Abrir o capítulo lendo a frase. Ela resume por que os modelos
+    conversam entre si na formação do pesquisador iniciante.
+    Clique 1. No centro, a formação em pesquisa. Em volta, os quatro modelos
+    que sustentam o delineamento: escrita, comportamento informacional,
+    busca exploratória e autoeficácia.
+    Clique 2. Na órbita externa, as bases tecnológicas que tornam a mediação
+    possível. Os ícones de coocorrência e LLM voltam ao canto.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     SLIDE 11 · REVISÃO DE LITERATURA · MODELOS TEÓRICOS (R2)
+     Um modelo por clique. As miniaturas ampliam ao clicar (Esc fecha).
+     Os destaques em dourado mostram o ponto de contato com o Delinéia.
+     ===================================================================== -->
+<section class="modelos" data-secao="Revisão de literatura">
+  <div class="quadro">
+
+    <h2 class="afirmacao">Quatro modelos explicam as exigências cognitivas e afetivas do delineamento</h2>
+
+    <div class="evidencia colunas">
+
+      <div class="modelo fragment" data-fragment-index="1">
+        <div class="miniaturas">
+          <img class="ampliavel" src="midia/revisao/escrita-flower-hayes.png" alt="Modelo de escrita"
+               data-nome="Modelo de escrita" data-ref="Flower; Hayes, 1981, p. 370">
+        </div>
+        <h3>Escrita</h3>
+        <p class="ref-modelo">Flower; Hayes, 1981</p>
+        <p class="contato">Delinear o escopo corresponde ao planejamento, que reúne gerar ideias, organizá-las e definir metas.</p>
+      </div>
+
+      <div class="modelo fragment" data-fragment-index="2">
+        <div class="miniaturas duas">
+          <img class="ampliavel" src="midia/revisao/wilson-1999.png" alt="Modelo de comportamento de uso da informação I"
+               data-nome="Modelo de comportamento de uso da informação I" data-ref="Wilson, 1999b, p. 251">
+          <img class="ampliavel" src="midia/revisao/wilson-2000.png" alt="Modelo de comportamento de uso da informação II"
+               data-nome="Modelo de comportamento de uso da informação II" data-ref="Wilson, 2000, p. 53">
+        </div>
+        <h3>Comportamento informacional</h3>
+        <p class="ref-modelo">Wilson, 1999b; 2000</p>
+        <p class="contato">No modelo de 2000, crenças de autoeficácia modulam a ativação do comportamento de busca.</p>
+      </div>
+
+      <div class="modelo fragment" data-fragment-index="3">
+        <div class="miniaturas">
+          <img class="ampliavel" src="midia/revisao/busca-exploratoria-hoeber-shukla.png" alt="Modelo de busca exploratória"
+               data-nome="Modelo de busca exploratória" data-ref="Hoeber; Shukla, 2022, p. 1173">
+        </div>
+        <h3>Busca exploratória</h3>
+        <p class="ref-modelo">Hoeber; Shukla, 2022</p>
+        <p class="contato">A formulação de foco acontece sob uma incerteza que oscila antes de se estabilizar.</p>
+      </div>
+
+      <div class="modelo fragment" data-fragment-index="4">
+        <div class="cartao">Crença na própria capacidade de organizar e executar as ações necessárias para atingir um resultado</div>
+        <h3>Autoeficácia em pesquisa</h3>
+        <p class="ref-modelo">Bandura, 1997</p>
+        <p class="contato">Explica por que alguns estudantes persistem e toleram a incerteza, enquanto outros recuam.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <aside class="notes">
+    [3:00] Um modelo por clique. Clicar na miniatura amplia a figura.
+    Clique 1. Flower e Hayes. O destaque em dourado é o planejamento, que é
+    onde o delineamento do escopo acontece.
+    Clique 2. Wilson. No modelo de 2000 a autoeficácia aparece dentro do
+    próprio comportamento informacional, como mecanismo ativador. É a ponte
+    com Bandura.
+    Clique 3. Hoeber e Shukla. A formulação de foco, sob incerteza oscilante,
+    é o objeto do objetivo específico e.
+    Clique 4. Bandura. O construto central da tese.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     SLIDE 12 · REVISÃO DE LITERATURA · BASES TECNOLÓGICAS (R3)
+     Seções 2.3 a 2.6, um quadrante por clique, no sentido horário,
+     na mesma posição que ocupam na órbita externa do slide de abertura.
+     ===================================================================== -->
+<section class="bases" data-secao="Revisão de literatura">
+  <div class="quadro">
+
+    <h2 class="afirmacao">A integração tecnológica viabiliza a mediação pedagógica do delineamento</h2>
+
+    <div class="evidencia quadrantes">
+
+      <div class="base-item fragment" data-fragment-index="1" style="grid-area: llm">
+        <svg><use href="#icone-llm"></use></svg>
+        <div>
+          <p class="secao-num">2.3</p>
+          <h3>LLMs para extração de informações</h3>
+          <p class="frase">Extraem informações e selecionam palavras-chave em domínios diversos, com risco de alucinação.</p>
+          <p class="ref-base">Han et al., 2024; Xu et al., 2024; Lei et al., 2024</p>
+        </div>
+      </div>
+
+      <div class="base-item fragment" data-fragment-index="2" style="grid-area: interacao">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="13" cy="17" r="6" fill="none" stroke="#1C2B45" stroke-width="2.4"/>
+          <path d="M3 40c0-7 4.5-11 10-11s10 4 10 11" fill="none" stroke="#1C2B45" stroke-width="2.4"/>
+          <rect x="27" y="8" width="18" height="14" fill="none" stroke="#1C2B45" stroke-width="2.4"/>
+          <line x1="31" y1="13" x2="41" y2="13" stroke="#1C2B45" stroke-width="2"/>
+          <rect x="31" y="16" width="4" height="3" fill="#B3893A"/>
+          <path d="M22 26l6-3M28 27l-6 3" stroke="#B3893A" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <p class="secao-num">2.4</p>
+          <h3>Interação humano-IA na educação</h3>
+          <p class="frase">Os efeitos educacionais dependem do planejamento pedagógico e de o estudante manter o controle interpretativo.</p>
+          <p class="ref-base">Wang; Jing; Shen, 2025; Atchley et al., 2024; Wu et al., 2025</p>
+        </div>
+      </div>
+
+      <div class="base-item fragment" data-fragment-index="3" style="grid-area: coocorrencia">
+        <svg><use href="#icone-coocorrencia"></use></svg>
+        <div>
+          <p class="secao-num">2.5</p>
+          <h3>Análise de coocorrência de palavras</h3>
+          <p class="frase">Mapeia a estrutura temática de um campo e torna visíveis as lacunas da literatura.</p>
+          <p class="ref-base">Callon et al., 1983; He, 1999; Oliveira et al., 2019</p>
+        </div>
+      </div>
+
+      <div class="base-item fragment" data-fragment-index="4" style="grid-area: aceitacao">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <line x1="24" y1="8" x2="24" y2="40" stroke="#1C2B45" stroke-width="2.4"/>
+          <line x1="14" y1="40" x2="34" y2="40" stroke="#1C2B45" stroke-width="2.4"/>
+          <line x1="7" y1="14" x2="41" y2="14" stroke="#1C2B45" stroke-width="2.4"/>
+          <path d="M7 14l-5 12h10z" fill="none" stroke="#1C2B45" stroke-width="2.2" stroke-linejoin="round"/>
+          <path d="M41 14l-5 12h10z" fill="#B3893A" stroke="#B3893A" stroke-width="2.2" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <p class="secao-num">2.6</p>
+          <h3>Aceitação e usabilidade</h3>
+          <p class="frase">TAM3 e UTAUT pesam o ganho esperado contra o esforço de uso. No TAM3, a <em>autoeficácia</em> antecede a facilidade de uso percebida.</p>
+          <p class="ref-base">Venkatesh et al., 2003; Venkatesh; Bala, 2008</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="marcadores">
+      <span class="marcador fragment" data-fragment-index="1"><svg><use href="#icone-llm"></use></svg>LLM</span>
+      <span class="marcador fragment" data-fragment-index="3"><svg><use href="#icone-coocorrencia"></use></svg>coocorrência</span>
+    </div>
+
+  </div>
+
+  <aside class="notes">
+    [2:30] As quatro bases tecnológicas, no sentido horário, na mesma posição
+    que ocupavam na órbita do slide de abertura.
+    Clique 1. LLMs extraem informação, mas alucinam. Por isso o Delinéia
+    restringe o espaço de busca aos tópicos do OpenAlex.
+    Clique 2. O que decide o efeito educacional é o desenho pedagógico e o
+    controle interpretativo que continua com o estudante.
+    Clique 3. A coocorrência dá ao estudante o mapa do campo.
+    Clique 4. TAM3 e UTAUT fundamentam o instrumento do estudo final. Destacar
+    que a autoeficácia volta aqui, como antecedente da facilidade de uso.
+  </aside>
+</section>
 
 <!-- =====================================================================
      SLIDE · ESTADO DA ARTE

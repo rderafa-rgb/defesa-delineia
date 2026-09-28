@@ -12,14 +12,14 @@
    indica a sua seção pelo atributo data-secao="..." com o mesmo nome. */
 const SECOES = [
   "Introdução",
-  "Referencial teórico",
+  "Revisão de literatura",
+  "Revisão sistemática de literatura",
   "Estado da arte",
   "Metodologia",
   "Delinéia",
   "Resultados e discussão",
   "Considerações finais"
 ];
-
 
 /* ---------- 1. Rodapé -------------------------------------------- */
 function montarRodapes() {
@@ -135,4 +135,20 @@ Reveal.addKeyBinding({ keyCode: 88, key: "X", description: "Expandir ou recolher
   const slide = Reveal.getCurrentSlide();
   const janela = slide.querySelector(".janela-video");
   if (janela) expandir(slide, !janela.classList.contains("expandida"));
+});
+
+
+/* ---------- 4. Ampliação de figuras ----------------------------------
+   Qualquer imagem com a classe "ampliavel" abre na janela de ampliação
+   ao ser clicada. Usa o mesmo <dialog id="ampliacao"> do estado da arte,
+   e o teclado do reveal volta a funcionar quando a janela fecha. */
+document.querySelectorAll("img.ampliavel").forEach(img => {
+  img.addEventListener("click", () => {
+    document.getElementById("ampliacao-img").src = img.src;
+    document.getElementById("ampliacao-img").alt = img.alt;
+    document.getElementById("ampliacao-nome").textContent = img.dataset.nome || img.alt;
+    document.getElementById("ampliacao-ref").textContent = img.dataset.ref || "";
+    document.getElementById("ampliacao").showModal();
+    Reveal.configure({ keyboard: false });
+  });
 });
