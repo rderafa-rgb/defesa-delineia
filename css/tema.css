@@ -1144,3 +1144,96 @@
   width: 96px; height: 150px; object-fit: cover; object-position: top;
   border: 1px solid var(--nevoa); background: #fff; cursor: zoom-in; display: block;
 }
+
+/* ---------- 5r. Metodologia · percurso do participante (M3) -------- */
+.percurso .jornada {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 34px;
+  padding-top: 76px;
+}
+.percurso .passo {
+  border-top: 4px solid var(--tinta);
+  padding-top: 14px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.percurso .passo:not(:last-child)::after {
+  content: "›";
+  position: absolute; right: -24px; top: 34px;
+  font-size: 36px; color: #9AA3B0;
+}
+.percurso .passo .n-passo { font-size: 20px; color: var(--ouro); }
+.percurso .passo h3 {
+  font-family: var(--serifa); font-weight: 600; font-size: 30px; line-height: 1.15;
+  color: var(--tinta); margin: 4px 0 14px;
+}
+.percurso .passo ul { list-style: none; margin: 0; padding: 0; flex: 1; display: flex; flex-direction: column; }
+.percurso .passo li {
+  font-size: 22px; line-height: 1.35; color: var(--tinta);
+  padding: 8px 0; border-top: 1px solid rgba(213, 218, 225, .7);
+}
+.percurso .passo li:first-child { border-top: none; padding-top: 0; }
+.percurso .passo li.medida { color: var(--ouro); font-weight: 600; margin-top: auto; border-top: 2px solid var(--ouro); padding-top: 10px; }
+.percurso .passo li .cod { font-weight: 400; color: var(--grafite); margin-right: 6px; }
+.percurso .miniatura-f1 { position: absolute; top: 18px; right: 0; }
+.percurso .passo.com-miniatura h3,
+.percurso .passo.com-miniatura li:first-child { padding-right: 80px; }
+.percurso .miniatura-f1 img {
+  width: 64px; height: 84px; object-fit: cover; object-position: top;
+  border: 1px solid var(--nevoa); background: #fff; cursor: zoom-in; display: block;
+}
+
+/* O arco que liga a segurança antes e depois */
+.percurso .arco { position: relative; height: 150px; margin-top: 6px; }
+.percurso .arco svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.percurso .arco path { fill: none; stroke: var(--ouro); stroke-width: 3; }
+.percurso .arco circle { fill: var(--ouro); }
+.percurso .arco .rotulo-arco {
+  position: absolute;
+  left: 50%; top: 86px;
+  transform: translateX(-12%);
+  width: 820px;
+  font-family: var(--serifa);
+  font-size: 30px;
+  line-height: 1.3;
+  color: var(--tinta);
+}
+.percurso .arco .rotulo-arco b { color: var(--ouro); font-weight: 600; }
+
+/* ---------- 5s. Metodologia · instrumentos e análise (M4) ---------- */
+.analise .matriz { padding-top: 44px; }
+.analise .linha-matriz {
+  display: grid;
+  grid-template-columns: 470px 1fr 250px;
+  column-gap: 44px;
+  align-items: start;
+  padding: 18px 0;
+  border-top: 1px solid var(--nevoa);
+}
+.analise .cabecalho-matriz {
+  border-top: none;
+  padding: 0 0 8px;
+  font-size: 20px;
+  color: var(--grafite);
+}
+.analise .dados h3 {
+  font-family: var(--serifa); font-weight: 600; font-size: 29px; line-height: 1.15;
+  color: var(--tinta); margin: 0 0 6px;
+}
+.analise .dados p { font-size: 21px; color: var(--grafite); margin: 0; }
+.analise .tratamento p { font-size: 24px; line-height: 1.38; color: var(--tinta); margin: 0; }
+.analise .tratamento .ref-trat { font-size: 19px; color: var(--grafite); margin-top: 6px; }
+.analise .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.analise .chips span {
+  font-size: 18px; color: var(--tinta);
+  border: 1px solid var(--nevoa); background: #fff;
+  padding: 4px 10px;
+}
+.analise .chips span b { color: var(--grafite); font-weight: 400; margin-left: 4px; }
+.analise .objetivo {
+  font-size: 22px; color: var(--ouro); font-weight: 600;
+  border-left: 3px solid var(--ouro); padding-left: 14px;
+}
+.analise .objetivo small { display: block; font-weight: 400; color: var(--grafite); font-size: 19px; margin-top: 2px; }
