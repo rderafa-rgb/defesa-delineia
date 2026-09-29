@@ -964,3 +964,183 @@
 }
 .sumario .detalhe li:first-child { border-top: none; padding-top: 0; }
 .sumario .detalhe p { font-size: 29px; line-height: 1.45; color: var(--grafite); margin: 0; }
+
+/* ---------- 5o. Metodologia · desenho do estudo (M1) --------------- */
+.dsr .momentos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 36px;
+  padding-top: 44px;
+}
+/* Os cartões ficam sempre visíveis e mudam de estado a cada clique */
+.reveal .slides section .momento.fragment { opacity: 1; visibility: inherit; }
+.momento {
+  border-top: 5px solid var(--nevoa);
+  padding: 18px 4px 0;
+  transition: border-color 420ms ease;
+}
+.momento .etapa-dsr { font-size: 22px; color: var(--grafite); margin: 0 0 4px; }
+.momento h3 {
+  font-family: var(--serifa);
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1.15;
+  color: #9AA3B0;
+  margin: 0 0 10px;
+  transition: color 420ms ease;
+}
+.momento .n-dsr {
+  font-family: var(--serifa);
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 1;
+  color: #9AA3B0;
+  transition: color 420ms ease;
+}
+.momento .n-dsr small { font-family: var(--sem-serifa); font-weight: 400; font-size: 22px; color: var(--grafite); margin-left: 8px; }
+.momento .mediacao { font-size: 22px; color: var(--grafite); margin: 10px 0 0; }
+.momento.visible { border-top-color: #9AA3B0; }
+.momento.visible h3, .momento.visible .n-dsr { color: var(--grafite); }
+.momento.current-fragment { border-top-color: var(--ouro); }
+.momento.current-fragment h3 { color: var(--tinta); }
+.momento.current-fragment .n-dsr { color: var(--ouro); }
+
+/* Eixo da autonomia, revelado na síntese */
+.dsr .eixo-autonomia { margin-top: 26px; }
+.dsr .eixo-autonomia .linha {
+  height: 4px;
+  background: linear-gradient(to right, var(--nevoa), var(--tinta) 55%, var(--ouro));
+}
+.dsr .eixo-autonomia .pontas { display: flex; justify-content: space-between; font-size: 21px; color: var(--grafite); margin-top: 8px; }
+
+/* Detalhes de cada momento, no mesmo lugar, um de cada vez */
+.dsr .painel-dsr { position: relative; margin-top: 30px; height: 300px; }
+.dsr .detalhe-dsr {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  column-gap: 48px;
+  align-items: start;
+}
+.dsr .detalhe-dsr .capa-estudo {
+  width: 300px;
+  height: 250px;
+  border: 1px solid var(--nevoa);
+  background: #fff;
+}
+.dsr .detalhe-dsr .capa-estudo img {
+  width: 100%; height: 100%; object-fit: contain; display: block; cursor: zoom-in; box-sizing: border-box; padding: 8px;
+}
+.dsr .detalhe-dsr .logo-delineia {
+  width: 300px; height: 250px;
+  display: grid; place-items: center;
+}
+.dsr .detalhe-dsr .logo-delineia img { height: 250px; width: auto; display: block; }
+.dsr .detalhe-dsr dl { margin: 0; display: grid; grid-template-columns: 190px 1fr; row-gap: 16px; column-gap: 24px; }
+.dsr .detalhe-dsr dt { font-size: 22px; color: var(--grafite); padding-top: 3px; }
+.dsr .detalhe-dsr dd { margin: 0; font-size: 26px; line-height: 1.36; color: var(--tinta); }
+.dsr .detalhe-dsr dd.limite { color: var(--ouro); }
+.dsr:has(.sintese-dsr.visible) .momento h3,
+.dsr:has(.sintese-dsr.visible) .momento .n-dsr { color: var(--tinta); }
+.dsr:has(.sintese-dsr.visible) .momento { border-top-color: var(--tinta); }
+.dsr .sintese-dsr p {
+  font-family: var(--serifa);
+  font-size: 36px;
+  line-height: 1.35;
+  color: var(--tinta);
+  margin: 0;
+  max-width: 1400px;
+  padding-left: 36px;
+  border-left: 5px solid var(--ouro);
+}
+
+/* ---------- 5p. Mapa recorrente do DSR (M2 em diante) -------------- */
+.mapa-dsr {
+  position: absolute;
+  top: 50px;
+  left: var(--margem);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 20px;
+  color: #9AA3B0;
+}
+.mapa-dsr span { display: inline-flex; align-items: center; gap: 10px; }
+.mapa-dsr span::before {
+  content: "";
+  width: 12px; height: 12px; border-radius: 50%;
+  border: 2px solid #B7BFCA; box-sizing: border-box;
+}
+.mapa-dsr i { width: 40px; height: 2px; background: var(--nevoa); }
+.mapa-dsr .passado { color: var(--grafite); }
+.mapa-dsr .passado::before { background: #9AA3B0; border-color: #9AA3B0; }
+.mapa-dsr .atual { color: var(--tinta); font-weight: 600; }
+.mapa-dsr .atual::before { background: var(--ouro); border-color: var(--ouro); }
+
+/* ---------- 5q. Metodologia · arquitetura (M2) --------------------- */
+.arquitetura .camadas-arq { padding-top: 52px; }
+.arquitetura .rotulo-camada { font-size: 20px; color: var(--grafite); margin: 0 0 10px; }
+.arquitetura .linha-arq {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 26px;
+}
+/* Trilha de aprendizagem */
+.arquitetura .etapa-arq {
+  border-top: 4px solid var(--tinta);
+  padding-top: 12px;
+  position: relative;
+}
+.arquitetura .etapa-arq .n-arq { font-size: 20px; color: var(--ouro); }
+.arquitetura .etapa-arq h3 {
+  font-family: var(--serifa); font-weight: 600; font-size: 29px; line-height: 1.15;
+  color: var(--tinta); margin: 4px 0 8px;
+}
+.arquitetura .etapa-arq .distintivo { font-size: 21px; color: var(--grafite); }
+.arquitetura .etapa-arq .distintivo b { color: var(--ouro); font-weight: 600; }
+.arquitetura .etapa-arq:not(:last-child)::after {
+  content: "›";
+  position: absolute; right: -20px; top: 30px;
+  font-size: 34px; color: #9AA3B0;
+}
+/* Conectores verticais entre a trilha e o motor */
+.arquitetura .conectores { height: 84px; margin-top: 14px; }
+.arquitetura .conector {
+  width: 2px; height: 84px; margin: 0 auto;
+  background: repeating-linear-gradient(to bottom, var(--ouro) 0 6px, transparent 6px 11px);
+}
+/* Motor: bastidores em azul-noite */
+.arquitetura .motor-arq {
+  background: var(--noite);
+  color: var(--papel);
+  padding: 18px 20px 20px;
+  min-height: 262px;
+  box-sizing: border-box;
+  position: relative;
+}
+.arquitetura .motor-arq h3 {
+  font-family: var(--serifa); font-weight: 600; font-size: 28px; line-height: 1.15;
+  margin: 0 0 12px; color: var(--papel);
+}
+.arquitetura .motor-arq ul { list-style: none; margin: 0; padding: 0; }
+.arquitetura .motor-arq li {
+  font-size: 21px; line-height: 1.35; color: rgba(247, 247, 244, .85);
+  padding: 6px 0; border-top: 1px solid rgba(247, 247, 244, .16);
+}
+.arquitetura .motor-arq li:first-child { border-top: none; padding-top: 0; }
+.arquitetura .motor-arq li b { color: var(--ouro-claro); font-weight: 600; }
+.arquitetura .motor-arq.encadeado::after {
+  content: "›";
+  position: absolute; right: -20px; top: 90px;
+  font-size: 34px; color: var(--ouro);
+}
+.arquitetura .infra { font-size: 21px; color: var(--grafite); margin: 16px 0 0; }
+
+/* Diagramas da tese, sempre disponíveis para ampliar */
+.arquitetura .diagramas p { font-size: 19px; color: var(--grafite); margin: 0 0 10px; }
+.arquitetura .diagramas .miniaturas-arq { display: flex; gap: 12px; }
+.arquitetura .diagramas img {
+  width: 96px; height: 150px; object-fit: cover; object-position: top;
+  border: 1px solid var(--nevoa); background: #fff; cursor: zoom-in; display: block;
+}
