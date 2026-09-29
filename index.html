@@ -1559,23 +1559,32 @@
 </section>
 
 <!-- =====================================================================
-     SLIDE DE TESTE · VÍDEO  (apagar antes da defesa)
-     Cada clique de avanço dispara uma ação no vídeo.
+     SLIDE · DELINÉIA · VÍDEO 1 · ENTRADA E FORMULÁRIO INICIAL
+     Clique 1: toca. Clique 2: expande. Clique 3: recolhe e pausa.
+     O roteiro à direita acende sozinho conforme o vídeo avança.
+     Ajuste os data-t (segundos) depois de gravar.
+     Arquivo do vídeo: midia/videos/01-entrada-formulario.mp4
      ===================================================================== -->
-<section class="teste-video" data-secao="Delinéia">
+<section class="demo" data-secao="Delinéia">
   <div class="quadro">
-    <h2 class="afirmacao">Teste do vídeo acionado pela fala</h2>
+
+    <h2 class="afirmacao">A trilha começa quando o estudante descreve o seu projeto no formulário inicial</h2>
 
     <div class="veu"></div>
     <div class="janela-video">
-      <video src="midia/videos/teste.mp4" poster="midia/imagens/teste-poster.jpg" preload="auto" muted playsinline></video>
+      <video src="midia/videos/01-entrada-formulario.mp4" poster="midia/imagens/poster-delineia.jpg"
+             preload="auto" muted playsinline></video>
+      <div class="legenda-video"></div>
     </div>
 
-    <div class="instrucoes-teste">
-      <p>Avançar uma vez inicia o vídeo.</p>
-      <p>Avançar de novo expande a janela.</p>
-      <p>Avançar mais uma vez recolhe e pausa.</p>
-      <p>Durante o ensaio, <kbd>V</kbd> pausa ou retoma e <kbd>X</kbd> expande ou recolhe.</p>
+    <div class="capitulos">
+      <p>Neste vídeo</p>
+      <ol>
+        <li data-t="0"><strong>Apresentação</strong><span>a barra lateral, com o sistema, a trilha e as tecnologias</span></li>
+        <li data-t="20"><strong>Abas</strong><span>Delineascópio, Interação, Histórico e Painel</span></li>
+        <li data-t="40"><strong>Formulário inicial</strong><span>tema, questão, palavras-chave, fontes de busca e segurança</span></li>
+        <li data-t="70"><strong>Processamento</strong><span>o relatório sendo gerado no HuggingFace</span></li>
+      </ol>
     </div>
 
     <!-- Gatilhos invisíveis, na ordem em que acontecem -->
@@ -1585,10 +1594,11 @@
   </div>
 
   <aside class="notes">
-    Slide de teste. Apagar antes da defesa.
+    [2:00] Narração ao vivo, com o projeto de demonstração.
+    Clique 1 toca. Clique 2 expande. Clique 3 recolhe.
+    Ao terminar, a janela recolhe sozinha. V pausa, X expande.
   </aside>
 </section>
-
 
 </div>
 </div>

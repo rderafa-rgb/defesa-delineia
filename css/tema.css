@@ -1237,3 +1237,43 @@
   border-left: 3px solid var(--ouro); padding-left: 14px;
 }
 .analise .objetivo small { display: block; font-weight: 400; color: var(--grafite); font-size: 19px; margin-top: 2px; }
+
+/* ---------- 5t. Delinéia · vídeos de demonstração ------------------ */
+.demo .janela-video { top: 290px; width: 1120px; height: 630px; background: #E9EDF2; }
+.demo .janela-video.expandida { left: 60px; top: 34px; width: 1800px; height: 1012px; }
+.demo .legenda-video {
+  position: absolute;
+  left: 0; bottom: 0;
+  padding: 10px 22px;
+  background: rgba(19, 32, 58, 0.78);
+  color: var(--papel);
+  font-size: 22px;
+}
+.demo .legenda-video:empty { display: none; }
+
+/* Roteiro do vídeo, que acende sozinho conforme o tempo */
+.demo .capitulos {
+  position: absolute;
+  left: 1290px;
+  top: 290px;
+  width: 510px;
+}
+.demo .capitulos p { font-size: 21px; color: var(--grafite); margin: 0 0 14px; }
+.demo .capitulos ol { list-style: none; margin: 0; padding: 0; }
+.demo .capitulos li {
+  border-left: 4px solid var(--nevoa);
+  padding: 10px 0 12px 22px;
+  margin-bottom: 6px;
+  transition: border-color 400ms ease;
+}
+.demo .capitulos li strong {
+  display: block;
+  font-family: var(--serifa); font-weight: 600; font-size: 28px; line-height: 1.15;
+  color: #9AA3B0; transition: color 400ms ease;
+}
+.demo .capitulos li span { font-size: 21px; line-height: 1.35; color: #9AA3B0; transition: color 400ms ease; }
+.demo .capitulos li.feito { border-left-color: #9AA3B0; }
+.demo .capitulos li.feito strong, .demo .capitulos li.feito span { color: var(--grafite); }
+.demo .capitulos li.ativo { border-left-color: var(--ouro); }
+.demo .capitulos li.ativo strong { color: var(--tinta); }
+.demo .capitulos li.ativo span { color: var(--tinta); }

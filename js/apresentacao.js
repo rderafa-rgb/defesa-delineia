@@ -74,13 +74,15 @@ function executarAcao(slide, acao, voltando) {
     if (acao === "expandir") expandir(slide, true);
     if (acao === "recolher") { expandir(slide, false); video.pause(); }
   } else {
-    if (acao === "tocar")    { video.pause(); video.currentTime = 0; }
+    if (acao === "tocar")    {
+      video.pause(); video.currentTime = 0;
+      if (video.reiniciarRoteiro) video.reiniciarRoteiro();
+    }
     if (acao === "pausar")   video.play();
     if (acao === "expandir") expandir(slide, false);
     if (acao === "recolher") expandir(slide, true);
   }
 }
-
 
 /* ---------- 3. Inicialização do reveal.js ------------------------ */
 montarRodapes();
@@ -151,4 +153,36 @@ document.querySelectorAll("img.ampliavel").forEach(img => {
     document.getElementById("ampliacao").showModal();
     Reveal.configure({ keyboard: false });
   });
+});
+
+/* ---------- 5. Roteiro dos vídeos ------------------------------------
+   Em cada slide de vídeo, os itens de .capitulos têm data-t com o
+   segundo em que aquele trecho começa. O roteiro só acende depois que o
+   vídeo começa a tocar; antes disso, tudo fica neutro. Conforme o vídeo
+   avança, o item correspondente acende e o título dele aparece na
+   legenda. Quando o vídeo termina, a janela recolhe sozinha. */
+document.querySelectorAll(".janela-video video").forEach(video => {
+  const slide = video.closest("section");
+  const itens = [...slide.querySelectorAll(".capitulos li[data-t]")];
+  const legenda = slide.querySelector(".legenda-video");
+  let iniciado = false;
+
+  function atualizar() {
+    let atual = -1;
+    if (iniciado) {
+      itens.forEach((li, i) => { if (video.currentTime >= parseFloat(li.dataset.t)) atual = i; });
+    }
+    itens.forEach((li, i) => {
+      li.classList.toggle("ativo", i === atual);
+      li.classList.toggle("feito", i < atual);
+    });
+    if (legenda) legenda.textContent = atual >= 0 ? itens[atual].querySelector("strong").textContent : "";
+  }
+
+  video.addEventListener("play", () => { iniciado = true; atualizar(); });
+  video.addEventListener("timeupdate", atualizar);
+  video.addEventListener("ended", () => expandir(slide, false));
+
+  // Usado quando o apresentador volta para antes do "tocar"
+  video.reiniciarRoteiro = () => { iniciado = false; atualizar(); };
 });
