@@ -17,7 +17,8 @@ const SECOES = [
   "Estado da arte",
   "Metodologia",
   "Delinéia",
-  "Resultados e discussão",
+  "Resultados",
+  "Discussão",
   "Considerações finais"
 ];
 

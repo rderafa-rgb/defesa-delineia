@@ -914,7 +914,7 @@
   grid-template-columns: 58px 60px 1fr;
   align-items: center;
   column-gap: 20px;
-  height: 78px;
+  height: 72px;
   border-bottom: 1px solid rgba(213, 218, 225, .7);
 }
 .sumario-item .traco {
@@ -1320,3 +1320,376 @@
   font-family: var(--serifa); font-weight: 600; font-size: 27px; line-height: 1.15; color: var(--tinta);
 }
 .relatorio .parte span { font-size: 21px; line-height: 1.3; color: var(--grafite); }
+
+/* ---------- 6a. Resultados · perfil e comportamento informacional -- */
+.perfil .paineis {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 56px;
+  padding-top: 50px;
+  align-items: start;
+}
+.perfil .painel-res > p.rotulo-res {
+  font-size: 20px; color: var(--grafite); margin: 0 0 14px;
+  padding-bottom: 8px; border-bottom: 1px solid var(--nevoa);
+}
+.perfil .numero-grande {
+  font-family: var(--serifa); font-weight: 600; font-size: 76px; line-height: 1;
+  color: var(--tinta);
+}
+.perfil .numero-grande small { font-size: 34px; color: var(--grafite); font-weight: 400; }
+.perfil .legenda-num { font-size: 23px; line-height: 1.35; color: var(--tinta); margin: 8px 0 18px; }
+
+/* 86 pontos: os 4 com experiência em dourado */
+.perfil .pontos86 { display: grid; grid-template-columns: repeat(15, 18px); gap: 7px; margin-bottom: 8px; }
+.perfil .nota-pontos { margin: 0 0 24px; }
+.perfil .pontos86 span { width: 18px; height: 18px; border-radius: 50%; background: #B7BFCA; }
+.perfil .pontos86 span.exp { background: var(--ouro); }
+
+.perfil .barras-res { list-style: none; margin: 0; padding: 0; }
+.perfil .barras-res li {
+  display: grid; grid-template-columns: 1fr 52px; align-items: center; column-gap: 12px;
+  margin-bottom: 12px;
+}
+.perfil .barras-res .nome-barra { font-size: 21px; color: var(--tinta); margin-bottom: 5px; display: block; }
+.perfil .barras-res .trilho-barra { height: 14px; background: #E6E8E5; }
+.perfil .barras-res .trilho-barra i { display: block; height: 100%; background: var(--tinta); }
+.perfil .barras-res .valor { font-family: var(--serifa); font-weight: 600; font-size: 26px; color: var(--tinta); text-align: right; align-self: end; }
+.perfil .nota-res { font-size: 20px; color: var(--grafite); margin: 6px 0 0; }
+
+/* O achado: a ilusão da ferramenta */
+.perfil .achado {
+  background: var(--noite);
+  color: var(--papel);
+  border-top: 5px solid #C9A45C;
+  padding: 28px 30px 30px;
+}
+.perfil .achado .rotulo-res { color: rgba(247,247,244,.7) !important; border-bottom-color: rgba(247,247,244,.2) !important; }
+.perfil .achado .numero-grande { color: #C9A45C; }
+.perfil .achado .legenda-num { color: var(--papel); }
+.perfil .achado p.destaque { font-family: var(--serifa); font-size: 27px; line-height: 1.4; color: var(--papel); margin: 18px 0 0; }
+.perfil .achado p.destaque b { color: #C9A45C; font-weight: 600; }
+
+/* ---------- 6b. Resultados · autoeficácia (6.2) --------------------- */
+.autoeficacia .evidencia {
+  display: grid;
+  grid-template-columns: 1fr 560px;
+  column-gap: 70px;
+  padding-top: 46px;
+  align-items: start;
+}
+.autoeficacia .rotulo-res {
+  font-size: 20px; color: var(--grafite); margin: 0 0 14px;
+  padding-bottom: 8px; border-bottom: 1px solid var(--nevoa);
+}
+/* Barras empilhadas, antes e depois */
+.autoeficacia .linha-barra { display: grid; grid-template-columns: 110px 1fr; column-gap: 18px; align-items: center; margin-bottom: 14px; }
+.autoeficacia .linha-barra > span { font-size: 22px; color: var(--grafite); text-align: right; }
+.autoeficacia .pilha { display: flex; height: 68px; }
+.autoeficacia .pilha i {
+  display: flex; align-items: center; justify-content: center;
+  font-style: normal; font-family: var(--serifa); font-weight: 600; font-size: 26px;
+}
+.autoeficacia .n1 { background: #E2E5EA; color: var(--tinta); }
+.autoeficacia .n2 { background: #C3C9D2; color: var(--tinta); }
+.autoeficacia .n3 { background: #9AA3B0; color: var(--tinta); }
+.autoeficacia .n4 { background: #4A5870; color: var(--papel); }
+.autoeficacia .n5 { background: var(--tinta); color: var(--papel); }
+.autoeficacia .chave-niveis { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 4px 0 0 128px; font-size: 18px; color: var(--grafite); }
+.autoeficacia .chave-niveis b { display: inline-block; width: 14px; height: 14px; margin-right: 6px; vertical-align: -1px; }
+
+/* Três números */
+.autoeficacia .tres { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 30px; margin-top: 50px; }
+.autoeficacia .tres div { border-top: 4px solid var(--tinta); padding-top: 10px; }
+.autoeficacia .tres div.recuo { border-top-color: var(--ouro); }
+.autoeficacia .tres strong { display: block; font-family: var(--serifa); font-weight: 600; font-size: 66px; line-height: 1.05; color: var(--tinta); }
+.autoeficacia .tres div.recuo strong { color: var(--ouro); }
+.autoeficacia .tres span { font-size: 22px; color: var(--grafite); }
+
+/* Cartão da calibração */
+.autoeficacia .calibracao {
+  background: var(--noite); color: var(--papel);
+  border-top: 5px solid #C9A45C;
+  padding: 26px 30px 28px;
+}
+.autoeficacia .calibracao .rotulo-res { color: rgba(247,247,244,.7); border-bottom-color: rgba(247,247,244,.2); }
+.autoeficacia .calibracao ul { list-style: none; margin: 0 0 16px; padding: 0; }
+.autoeficacia .calibracao li { font-size: 22px; line-height: 1.35; padding: 6px 0; border-bottom: 1px solid rgba(247,247,244,.12); }
+.autoeficacia .calibracao li b { font-family: var(--serifa); font-size: 26px; color: #C9A45C; margin-right: 8px; }
+.autoeficacia .calibracao p { font-family: var(--serifa); font-size: 25px; line-height: 1.4; margin: 0; }
+.autoeficacia .calibracao p em { font-style: normal; color: #C9A45C; }
+.autoeficacia .calibracao p.rotulo-res { font-family: var(--sem-serifa); font-size: 20px; line-height: 1.3; margin: 0 0 14px; }
+.autoeficacia .figuras-res { display: flex; gap: 14px; margin-top: 18px; align-items: center; }
+.autoeficacia .figuras-res img {
+  height: 110px; width: auto; max-width: 200px; object-fit: contain;
+  border: 1px solid var(--nevoa); background: #fff; cursor: zoom-in; display: block;
+}
+.autoeficacia .figuras-res span { font-size: 18px; color: var(--grafite); }
+
+/* Microminiaturas, uma por coluna, centralizadas abaixo de cada painel */
+.perfil .micro-fig { text-align: center; margin-top: 16px; }
+.perfil .micro-fig img {
+  width: 46px; height: 26px;
+  object-fit: cover; object-position: top left;
+  border: 1px solid var(--nevoa); background: #fff;
+  cursor: zoom-in; display: inline-block;
+}
+
+/* Figura 22 como microminiatura */
+.autoeficacia .figuras-res.micro img {
+  width: 46px; height: 26px; max-width: none;
+  object-fit: cover; object-position: top left;
+}
+
+/* ---------- 6c. Resultados · avaliação quantitativa (6.3) ----------- */
+.quanti .evidencia {
+  display: grid;
+  grid-template-columns: 1fr 470px;
+  column-gap: 70px;
+  padding-top: 40px;
+  align-items: start;
+}
+.quanti .rotulo-res {
+  font-size: 20px; color: var(--grafite); margin: 0 0 10px;
+  padding-bottom: 8px; border-bottom: 1px solid var(--nevoa);
+}
+/* Faixas de pontos: um ponto por afirmativa, na escala de 50% a 100% */
+.quanti .faixa {
+  display: grid;
+  grid-template-columns: 250px 1fr 56px;
+  column-gap: 20px;
+  align-items: center;
+  height: 66px;
+  border-bottom: 1px solid rgba(213, 218, 225, .6);
+}
+.quanti .faixa .nome-faixa { font-size: 22px; line-height: 1.2; color: var(--tinta); }
+.quanti .faixa .nome-faixa small { display: block; font-size: 17px; color: var(--grafite); }
+.quanti .trilho-faixa { position: relative; height: 66px; }
+.quanti .trilho-faixa::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--nevoa);
+}
+.quanti .ponto {
+  position: absolute; top: 50%;
+  width: 18px; height: 18px; margin: -9px 0 0 -9px;
+  border-radius: 50%; background: var(--tinta);
+}
+.quanti .ponto.baixo { background: var(--ouro); box-shadow: 0 0 0 5px rgba(179, 137, 58, .22); }
+.quanti .rotulo-ponto {
+  position: absolute; top: 50%;
+  transform: translate(-50%, -46px);
+  white-space: nowrap;
+  font-size: 18px; font-weight: 600; color: var(--ouro);
+}
+.quanti .eixo-faixa {
+  display: grid; grid-template-columns: 250px 1fr 56px; column-gap: 20px; margin-top: 8px;
+}
+.quanti .eixo-faixa .marcas { position: relative; height: 24px; font-size: 17px; color: var(--grafite); }
+.quanti .eixo-faixa .marcas span { position: absolute; transform: translateX(-50%); }
+.quanti .micro-fig img {
+  width: 46px; height: 26px; object-fit: cover; object-position: top left;
+  border: 1px solid var(--nevoa); background: #fff; cursor: zoom-in; display: block;
+}
+.quanti .nota-quanti { font-size: 21px; line-height: 1.4; color: var(--tinta); margin: 18px 0 0; }
+.quanti .nota-quanti b { color: var(--ouro); font-weight: 600; }
+
+/* Cartão do NPS */
+.quanti .nps {
+  background: var(--noite); color: var(--papel);
+  border-top: 5px solid #C9A45C;
+  padding: 26px 30px 28px;
+}
+.quanti .nps .rotulo-res { color: rgba(247,247,244,.7); border-bottom-color: rgba(247,247,244,.2); }
+.quanti .nps .valor-nps { font-family: var(--serifa); font-weight: 600; font-size: 104px; line-height: 1; color: #C9A45C; }
+.quanti .nps .escala { font-size: 21px; color: rgba(247,247,244,.8); margin: 6px 0 22px; }
+.quanti .nps .barra-nps { display: flex; height: 26px; margin-bottom: 12px; }
+.quanti .nps .barra-nps i:nth-child(1) { background: #C9A45C; }
+.quanti .nps .barra-nps i:nth-child(2) { background: rgba(247,247,244,.35); }
+.quanti .nps .barra-nps i:nth-child(3) { background: #9A5A4A; }
+.quanti .nps ul { list-style: none; margin: 0; padding: 0; }
+.quanti .nps li { font-size: 21px; line-height: 1.5; color: var(--papel); }
+.quanti .nps li b { font-family: var(--serifa); font-size: 25px; margin-right: 8px; }
+.quanti .nps .micro-fig { margin-top: 16px; }
+
+/* ---------- 6d. Resultados · avaliação qualitativa (6.4) ------------ */
+.quali .evidencia {
+  display: grid;
+  grid-template-columns: 1fr 560px;
+  column-gap: 70px;
+  padding-top: 40px;
+  align-items: start;
+}
+.quali .cabeca-quali {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 20px; color: var(--grafite);
+  padding-bottom: 8px; border-bottom: 1px solid var(--nevoa); margin: 0 0 16px;
+}
+.quali .cabeca-quali .micro-figs { display: flex; gap: 8px; }
+.quali .micro-figs img {
+  width: 46px; height: 26px; object-fit: cover; object-position: top left;
+  border: 1px solid var(--nevoa); background: #fff; cursor: zoom-in; display: block;
+}
+.quali .grupo-quali { margin-bottom: 14px; }
+.quali .grupo-quali > p { font-size: 19px; color: var(--grafite); margin: 0 0 4px; }
+.quali .cat {
+  display: grid; grid-template-columns: 480px 1fr 70px; column-gap: 16px;
+  align-items: center; height: 50px;
+}
+.quali .cat .nome-cat { font-size: 20px; line-height: 1.2; color: var(--tinta); }
+.quali .cat .nome-cat b { font-weight: 600; color: var(--grafite); margin-right: 6px; }
+.quali .cat .trilho-cat { height: 18px; background: #E6E8E5; }
+.quali .cat .trilho-cat i { display: block; height: 100%; }
+.quali .valor .trilho-cat i { background: var(--tinta); }
+.quali .tensao .trilho-cat i { background: #9AA3B0; }
+.quali .transversal .trilho-cat i { background: var(--ouro); }
+.quali .cat .pct { font-family: var(--serifa); font-weight: 600; font-size: 24px; color: var(--tinta); text-align: right; }
+
+/* Falas dos estudantes, uma por eixo */
+.quali .fala {
+  border-left: 4px solid var(--tinta);
+  padding: 6px 0 6px 24px;
+  margin-bottom: 30px;
+}
+.quali .fala.tensao { border-left-color: #9AA3B0; }
+.quali .fala.transversal { border-left-color: var(--ouro); }
+.quali .fala p {
+  font-family: var(--serifa); font-size: 28px; line-height: 1.35; color: var(--tinta); margin: 0 0 8px;
+}
+.quali .fala span { font-size: 18px; color: var(--grafite); }
+
+/* ---------- 6e. Resultados · Scopus e OpenAlex (6.5) ---------------- */
+.comparacao .evidencia {
+  display: grid;
+  grid-template-columns: 1fr 540px;
+  column-gap: 70px;
+  padding-top: 40px;
+  align-items: start;
+}
+.comparacao .rotulo-res {
+  font-size: 20px; color: var(--grafite); margin: 0 0 6px;
+  padding-bottom: 8px; border-bottom: 1px solid var(--nevoa);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.comparacao .micro-fig img {
+  width: 46px; height: 26px; object-fit: cover; object-position: top left;
+  border: 1px solid var(--nevoa); background: #fff; cursor: zoom-in; display: block;
+}
+/* Indicadores lado a lado */
+.comparacao .ind {
+  display: grid; grid-template-columns: 1fr 270px 250px; column-gap: 20px;
+  align-items: baseline; padding: 8px 0;
+  border-bottom: 1px solid rgba(213, 218, 225, .6);
+}
+.comparacao .ind.cab { padding: 4px 0 8px; }
+.comparacao .ind.cab span { font-size: 20px; color: var(--grafite); }
+.comparacao .ind.cab span b { display: block; font-family: var(--serifa); font-size: 26px; color: var(--tinta); }
+.comparacao .ind .nome-ind { font-size: 22px; color: var(--tinta); }
+.comparacao .ind .v { font-family: var(--serifa); font-weight: 600; font-size: 32px; color: #7A8494; white-space: nowrap; }
+.comparacao .ind .v.termo { font-size: 26px; }
+.comparacao .ind .v.oa { color: var(--tinta); }
+.comparacao .ind .v small { font-family: var(--sem-serifa); font-weight: 400; font-size: 19px; color: var(--grafite); margin-left: 6px; }
+
+/* O exemplo pareado: dois cartões, do jargão às grandes áreas */
+.comparacao .exemplo { margin-top: 54px; }
+.comparacao .exemplo > p.tema-ex {
+  font-size: 20px; color: var(--grafite); margin: 0 0 14px;
+}
+.comparacao .exemplo > p.tema-ex b { font-family: var(--serifa); font-weight: 600; font-size: 24px; color: var(--tinta); margin-left: 6px; }
+.comparacao .pares { display: grid; grid-template-columns: 1fr 44px 1fr; align-items: stretch; }
+.comparacao .cartao-ex {
+  background: #fff;
+  border: 1px solid var(--nevoa);
+  border-top: 4px solid #9AA3B0;
+  padding: 16px 18px 18px;
+  display: flex; flex-direction: column;
+}
+.comparacao .cartao-ex.oa { background: #EEF0F3; border-color: #DCE0E6; border-top-color: var(--tinta); }
+.comparacao .base-ex { font-size: 18px; color: var(--grafite); margin-bottom: 12px; }
+.comparacao .base-ex b { font-weight: 600; color: var(--tinta); }
+.comparacao .etiquetas { display: flex; flex-wrap: wrap; gap: 8px; }
+.comparacao .etiquetas i {
+  font-style: normal; font-size: 18px; padding: 4px 10px;
+  border: 1px solid #B7BFCA; color: #4A5870; background: #fff;
+}
+.comparacao .etiquetas.oa i { background: var(--tinta); border-color: var(--tinta); color: var(--papel); }
+.comparacao .sintese-ex {
+  font-family: var(--serifa); font-size: 23px; line-height: 1.3; color: var(--grafite);
+  margin: auto 0 0; padding-top: 14px;
+}
+.comparacao .cartao-ex.oa .sintese-ex { color: var(--tinta); }
+.comparacao .seta-ex { display: grid; place-items: center; font-size: 34px; color: var(--ouro); }
+
+/* Cartão: o que isso provocou */
+.comparacao .efeito {
+  background: var(--noite); color: var(--papel);
+  border-top: 5px solid #C9A45C;
+  padding: 26px 30px 28px;
+}
+.comparacao .efeito .rotulo-res { color: rgba(247,247,244,.7); border-bottom-color: rgba(247,247,244,.2); margin-bottom: 14px; }
+.comparacao .efeito p.forte { font-family: var(--serifa); font-size: 29px; line-height: 1.38; margin: 0 0 18px; }
+.comparacao .efeito p.forte b { color: #C9A45C; font-weight: 600; }
+.comparacao .efeito ul { list-style: none; margin: 0; padding: 0; }
+.comparacao .efeito li { font-size: 21px; line-height: 1.4; padding: 8px 0; border-top: 1px solid rgba(247,247,244,.14); color: rgba(247,247,244,.9); }
+.comparacao .efeito li b { color: #C9A45C; font-weight: 600; }
+
+/* ---------- 7a. Discussão · os construtos da tese ------------------- */
+.discussao .evidencia {
+  display: grid;
+  grid-template-columns: 1040px 1fr;
+  column-gap: 60px;
+  padding-top: 24px;
+  align-items: start;
+}
+.discussao .estrela { position: relative; width: 1040px; height: 640px; }
+.discussao .estrela svg.linhas { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.discussao .estrela .anel { fill: none; stroke: var(--nevoa); stroke-width: 2; stroke-dasharray: 5 8; }
+.discussao .estrela .aresta { fill: none; stroke: var(--ouro); stroke-width: 2.4; stroke-linejoin: round; }
+
+/* As cinco pontas */
+.discussao .ponta { position: absolute; transform: translate(-50%, -50%); }
+.discussao .ponta .icone-ponta {
+  width: 96px; height: 96px; border-radius: 50%;
+  background: var(--papel); border: 2px solid var(--tinta);
+  display: grid; place-items: center;
+}
+.discussao .ponta .icone-ponta svg { width: 54px; height: 54px; }
+.discussao .ponta .legenda-ponta { position: absolute; width: 240px; }
+.discussao .ponta .legenda-ponta strong {
+  display: block; font-family: var(--serifa); font-weight: 600; font-size: 25px; line-height: 1.15; color: var(--tinta);
+}
+.discussao .ponta .legenda-ponta span { font-size: 18px; line-height: 1.3; color: var(--grafite); }
+.discussao .ponta .legenda-ponta.cima { bottom: 112px; left: 50%; transform: translateX(-50%); text-align: center; }
+.discussao .ponta .legenda-ponta.direita { left: 112px; top: 50%; transform: translateY(-50%); }
+.discussao .ponta .legenda-ponta.esquerda { right: 112px; top: 50%; transform: translateY(-50%); text-align: right; }
+
+/* O centro: uma citação da tese por vez */
+.discussao .centro {
+  position: absolute; left: 520px; top: 330px; transform: translate(-50%, -50%);
+  width: 320px; height: 320px; border-radius: 50%;
+  background: var(--papel);
+  box-shadow: 0 0 0 1px var(--nevoa);
+}
+.discussao .citacao {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 0 22px;
+}
+.discussao .citacao p { font-family: var(--serifa); font-size: 20px; line-height: 1.34; color: var(--tinta); margin: 0 0 10px; }
+.discussao .citacao span { font-size: 17px; color: var(--grafite); }
+.discussao .citacao img {
+  width: 46px; height: 26px; object-fit: cover; object-position: top left;
+  border: 1px solid var(--nevoa); background: #fff; cursor: zoom-in; margin-top: 10px;
+}
+.discussao .citacao.final p { font-size: 28px; line-height: 1.28; }
+.discussao .citacao.final p b { color: var(--ouro); font-weight: 600; }
+
+/* Segunda coluna: convergências e tensões */
+.discussao .dialogo .rotulo-res {
+  font-size: 20px; color: var(--grafite); margin: 0 0 10px; padding-bottom: 8px; border-bottom: 1px solid var(--nevoa);
+}
+.discussao .dialogo h3 { font-family: var(--serifa); font-weight: 600; font-size: 26px; color: var(--tinta); margin: 18px 0 8px; }
+.discussao .dialogo h3.tensao { color: #7A5446; }
+.discussao .dialogo p { font-size: 20px; line-height: 1.38; color: var(--tinta); margin: 0 0 8px; }
+.discussao .dialogo .sistemas { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.discussao .dialogo .sistemas i {
+  font-style: normal; font-size: 16px; color: #4A5870; background: #fff; border: 1px solid #B7BFCA; padding: 2px 8px;
+}
