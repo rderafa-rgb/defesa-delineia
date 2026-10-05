@@ -108,16 +108,23 @@ Reveal.initialize({
 });
 
 
-/* Cada gatilho de vídeo é um "fragmento" invisível. Quando o reveal
-   mostra ou esconde um fragmento, verificamos se ele carrega uma ação. */
+/* Um mesmo clique pode revelar vários fragmentos ao mesmo tempo (por
+   exemplo, uma legenda e um gatilho de vídeo). Por isso percorremos
+   todos eles, e não só o primeiro. */
 Reveal.on("fragmentshown", (evento) => {
-  const acao = evento.fragment.dataset.videoAcao;
-  if (acao) executarAcao(Reveal.getCurrentSlide(), acao, false);
+  const fragmentos = evento.fragments || [evento.fragment];
+  fragmentos.forEach(f => {
+    const acao = f.dataset.videoAcao;
+    if (acao) executarAcao(Reveal.getCurrentSlide(), acao, false);
+  });
 });
 
 Reveal.on("fragmenthidden", (evento) => {
-  const acao = evento.fragment.dataset.videoAcao;
-  if (acao) executarAcao(Reveal.getCurrentSlide(), acao, true);
+  const fragmentos = evento.fragments || [evento.fragment];
+  fragmentos.forEach(f => {
+    const acao = f.dataset.videoAcao;
+    if (acao) executarAcao(Reveal.getCurrentSlide(), acao, true);
+  });
 });
 
 /* Ao sair de um slide, pausa o vídeo e recolhe a janela */
